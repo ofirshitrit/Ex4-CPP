@@ -3,25 +3,39 @@
 //
 
 #include "Point.hpp"
+#include <cmath>
 
 using namespace ariel;
 using namespace std;
 
-double Point::distance(Point other) {
-    return 0;
+double Point::distance(Point other) const{
+    double dx = this->getXCoordinate() - other.getXCoordinate();
+    double dy = this->getYCoordinate() - other.getYCoordinate();
+    return sqrt(dx * dx + dy * dy);
 }
 
-void Point::print() {
-
+void Point::print() const{
+    cout << "(" << x_coordinate << ", " << y_coordinate << ")" << endl;
 }
 
-Point Point::moveTowards(Point &src, Point &dest, int distance) {
-    return Point(0, 0);
+Point Point::moveTowards(Point &src, Point &dest, double distance) {
+    // Calculate the distance between the source and destination points
+    double dist = src.distance(dest);
+
+    // If the distance is less than or equal to the maximum distance, the destination point is the closest point
+    if (dist <= distance) {
+        return dest;
+    }
+
+    // Otherwise, we need to find the point on the line between the source and destination points
+    // that is at most the maximum distance away from the source point
+    double ratio = distance / dist;
+    double x = src.getXCoordinate() + (dest.getXCoordinate() - src.getXCoordinate()) * ratio;
+    double y = src.getYCoordinate() + (dest.getYCoordinate() - src.getYCoordinate()) * ratio;
+
+    return Point(x, y);
 }
 
-std::ostream &ariel::operator<<(ostream &ostr, const Point &point) {
-    return ostr;
-}
 
 double Point::getXCoordinate() const {
     return this->x_coordinate;

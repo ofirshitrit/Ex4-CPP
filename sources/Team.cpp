@@ -5,10 +5,12 @@
 #include "Team.hpp"
 
 using namespace ariel;
+using namespace std;
+
+
 
 
 void Team::attack(Team* other) {
-
 }
 
 int Team::stillAlive() {
@@ -27,7 +29,7 @@ Character *Team::getLeader() const {
     return _leader;
 }
 
-const std::vector<std::unique_ptr<Character>> &Team::getFighters() const {
+const std::vector<Character *> &Team::getFighters() const {
     return fighters;
 }
 

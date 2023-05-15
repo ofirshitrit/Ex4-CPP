@@ -9,33 +9,35 @@ using namespace std;
 
 
 
-ostream &ariel::operator<<(ostream &ostream, const Character &character) {
-    return ostream;
-}
-
-
 string Character::getName() {
     return this->_name;
 }
 
-Point Character::getLocation() {
+Point& Character::getLocation() {
     return this->_location;
 }
 
 bool Character::isAlive() {
-    return false;
+    return (_hitPoints > 0);
 }
 
 double Character::distance(Character* other) {
-    return 1;
+    return this->getLocation().distance(other->getLocation());
 }
 
 void Character::hit(int num) {
-
+    this->_hitPoints -= num;
 }
 
 int Character::getHitPoints() const {
     return this->_hitPoints;
+}
+
+string Character::print() {
+    string s = "name: " + _name + "\n";
+    s += "hit points: " + to_string(_hitPoints) + "\n";
+    s += "location: (" + to_string(_location.getXCoordinate()) + ", " + to_string(_location.getYCoordinate()) + ")\n";
+    return s;
 }
 
 

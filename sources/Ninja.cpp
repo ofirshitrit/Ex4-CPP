@@ -8,21 +8,22 @@ using namespace std;
 using namespace ariel;
 
 
-
-ostream &ariel::operator<<(ostream &ostream, const Ninja &ninja) {
-    return ostream;
-}
-
 string Ninja::print() {
-   return "non";
+    string s = "N \n";
+    s += Character::print();
+   return s;
 }
 
-void Ninja::move(const Character* enemy) {
-
+void Ninja::move(const Character* enemy) { //TODO
+    double x = this->getLocation().getXCoordinate();
+    x =  x + this->_speed;
 }
 
-void Ninja::slash(const Character* enemy) {
-
+void Ninja::slash(Character* enemy) {
+    double distFromEnemy = this->_location.distance(enemy->getLocation());
+    if (this->isAlive() && (distFromEnemy < 1)) {
+        enemy->hit(40);
+    }
 }
 
 int Ninja::getSpeed() const {

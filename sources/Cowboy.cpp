@@ -9,23 +9,25 @@ using namespace std;
 
 
 string Cowboy::print() {
-    return "non";
+    string s = "C \n";
+    s += Character::print();
+    return s;
 }
 
-void Cowboy::shoot(const Character *enemy) {
-
+void Cowboy::shoot(Character *enemy) {
+    if (this->hasboolets() && this->isAlive()) {
+        enemy->hit(10);
+        this->numOfBalls--;
+    }
 }
 
 bool Cowboy::hasboolets() {
-    return false;
+
+    return (this->numOfBalls > 0);
 }
 
 void Cowboy::reload() {
-
-}
-
-ostream &ariel::operator<<(ostream &ostream, const Cowboy &cowboy) {
-    return ostream;
+    this->numOfBalls += 6;
 }
 
 int Cowboy::getNumOfBalls() const {

@@ -12,19 +12,17 @@ namespace ariel {
     private:
         int numOfBalls = 6;
     public:
-        Cowboy(std::string name, Point &point) : Character(110, name, point) {}
+        Cowboy(std::string name, Point point) : Character(110, name, point) {}
 
         ~Cowboy() = default;
 
         std::string print() override;
 
-        void shoot(const Character* enemy);
+        void shoot(Character* enemy);
 
         bool hasboolets();
 
         void reload();
-
-        friend std::ostream &operator<<(std::ostream &ostr, const Cowboy &cowboy);
 
         int getNumOfBalls() const;
 

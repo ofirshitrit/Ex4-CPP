@@ -14,13 +14,10 @@ namespace ariel {
     public:
         Point(double x , double y) : x_coordinate(x) , y_coordinate(y){}
         ~Point() = default;
-        double distance(Point other);
-        void print();
-        Point moveTowards(Point& src , Point& dest, int distance);
-        friend std::ostream &operator<<(std::ostream &ostr, const Point &point);
-
+        double distance(Point other) const;
+        void print() const;
+        static Point moveTowards(Point& src , Point& dest, double distance) ; //TODO
         double getXCoordinate() const;
-
         double getYCoordinate() const;
     };
 }

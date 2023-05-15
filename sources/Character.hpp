@@ -11,11 +11,11 @@
 namespace ariel {
     class Character {
     protected:
-        Point& _location;
+        Point _location;
         int _hitPoints;
         std::string _name;
     public:
-        Character(int hitPoints, std::string name, Point &location) : _hitPoints(hitPoints), _name(name), _location(location) {}
+        Character(int hitPoints, std::string name, Point location) : _hitPoints(hitPoints), _name(name), _location(location) {}
 
         virtual ~Character()  = default;
 
@@ -25,9 +25,7 @@ namespace ariel {
 
         void hit(int num);
 
-        virtual std::string print() = 0;
-
-        friend std::ostream &operator<<(std::ostream &ostream, const Character &character);
+        virtual std::string print();
 
         std::string getName();
 

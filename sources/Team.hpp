@@ -19,7 +19,7 @@ namespace ariel {
     class Team {
     private:
         Character* _leader;
-        std::vector<std::unique_ptr<Character>> fighters;
+        std::vector<Character*> fighters;
     public:
         Team(Character* leader) : _leader(leader) , fighters(){}
 
@@ -35,7 +35,7 @@ namespace ariel {
 
         Character *getLeader() const;
 
-        const std::vector<std::unique_ptr<Character>> &getFighters() const;
+        const std::vector<Character *> &getFighters() const;
 
     };
 }

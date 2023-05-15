@@ -20,9 +20,7 @@ namespace ariel {
 
         void move(const Character* enemy);
 
-        void slash(const Character* enemy);
-
-        friend std::ostream &operator<<(std::ostream &ostream, const Ninja &ninja);
+        void slash(Character* enemy);
 
         int getSpeed() const;
 
