@@ -11,11 +11,7 @@ namespace ariel {
     class YoungNinja : public Ninja{
     public:
         YoungNinja(std::string name ,Point p) : Ninja(100, name, p, 14){}
-        ~YoungNinja() = default;
-
-        std::string print() override;
-
-        friend std::ostream &operator<<(std::ostream &ostream, const YoungNinja &youngNinja);
+        ~YoungNinja() override = default;
 
     };
 }

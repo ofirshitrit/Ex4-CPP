@@ -26,6 +26,7 @@ double Character::distance(Character* other) {
 }
 
 void Character::hit(int num) {
+    if ( num < 0) throw invalid_argument("the number cant be negative");
     this->_hitPoints -= num;
 }
 
@@ -40,6 +41,14 @@ string Character::print() {
     return s;
 }
 
+
+int Character::getTeam() const {
+    return team;
+}
+
+void Character::setTeam(int team) {
+    this->team = team;
+}
 
 
 

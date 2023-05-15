@@ -7,6 +7,9 @@
 
 #include "Point.hpp"
 #include <iostream>
+#define TEAM 1
+#define TEAM2 2
+#define SMART_TEAM 3
 
 namespace ariel {
     class Character {
@@ -14,6 +17,7 @@ namespace ariel {
         Point _location;
         int _hitPoints;
         std::string _name;
+        int team = TEAM; //default option
     public:
         Character(int hitPoints, std::string name, Point location) : _hitPoints(hitPoints), _name(name), _location(location) {}
 
@@ -33,7 +37,13 @@ namespace ariel {
 
         int getHitPoints() const;
 
+        int getTeam() const;
+
+        void setTeam(int team);
+
+
     };
+
 }
 
 

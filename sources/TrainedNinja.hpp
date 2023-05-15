@@ -15,11 +15,8 @@ namespace ariel {
     public:
         TrainedNinja(std::string name, Point p) : Ninja(120, name, p, 12) {}
 
-        ~TrainedNinja() = default;
+        ~TrainedNinja() override = default;
 
-        std::string print() override;
-
-        friend std::ostream &operator<<(std::ostream &ostream, const TrainedNinja &trainedNinja);
 
     };
 }

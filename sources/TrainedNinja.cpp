@@ -6,12 +6,4 @@
 using namespace ariel;
 using namespace std;
 
-ostream &ariel::operator<<(ostream &ostream, const TrainedNinja &trainedNinja) {
-    return ostream;
-}
-
-string TrainedNinja::print() {
-    return "non";
-}
-
 

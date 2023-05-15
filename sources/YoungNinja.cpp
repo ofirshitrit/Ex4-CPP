@@ -8,10 +8,3 @@
 using namespace ariel;
 using namespace std;
 
-ostream &ariel::operator<<(ostream &ostream, const YoungNinja &youngNinja) {
-    return ostream;
-}
-
-string YoungNinja::print() {
-    return "non";
-}

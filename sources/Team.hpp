@@ -17,17 +17,17 @@
 namespace ariel {
 
     class Team {
-    private:
+    protected:
         Character* _leader;
         std::vector<Character*> fighters;
     public:
-        Team(Character* leader) : _leader(leader) , fighters(){}
+        Team(Character* leader);
 
         ~Team() = default;
 
-        void add(const Character* character);
-
         int stillAlive();
+
+        virtual void add(Character* character);
 
         virtual void attack(Team *other);
 

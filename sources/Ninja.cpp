@@ -20,6 +20,7 @@ void Ninja::move(const Character* enemy) { //TODO
 }
 
 void Ninja::slash(Character* enemy) {
+    if (enemy == this) throw runtime_error("character cant heart itself");
     double distFromEnemy = this->_location.distance(enemy->getLocation());
     if (this->isAlive() && (distFromEnemy < 1)) {
         enemy->hit(40);

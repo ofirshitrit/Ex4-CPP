@@ -9,12 +9,12 @@
 
 namespace ariel {
     class Ninja : public Character {
-    private:
+    protected:
         int _speed;
     public:
         Ninja(int hp, std::string name, Point &loc, int spd) : Character(hp, name, loc), _speed(spd) {}
 
-        virtual ~Ninja() = default;
+        virtual ~Ninja() override = default;
 
         std::string print() override;
 

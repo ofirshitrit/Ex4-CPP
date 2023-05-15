@@ -14,7 +14,7 @@ namespace ariel {
     public:
         Cowboy(std::string name, Point point) : Character(110, name, point) {}
 
-        ~Cowboy() = default;
+        ~Cowboy() override = default;
 
         std::string print() override;
 
