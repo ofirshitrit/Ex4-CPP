@@ -27,8 +27,11 @@ void Team::print() {
 
 void Team::add( Character* character) {
     if (this->fighters.size() == 10) throw runtime_error("The team cant be over 10 fighters");
-    if (character->getTeam() != TEAM) throw runtime_error("This character is in other team");
-    character->setTeam(TEAM);
+    if (character->isBelongToTeam()) {
+        this->fighters.pop_back(); //remove the character
+        throw runtime_error("this character belong to other team");
+    }
+    character->setBelongToTeam(true);
     this->fighters.push_back(character);
 }
 
@@ -42,6 +45,11 @@ const std::vector<Character *> &Team::getFighters() const {
 
 Team::Team(Character *leader)  : _leader(leader) , fighters()
 {
+    if (leader->isBelongToTeam()) {
+        this->fighters.pop_back(); //remove the leader
+        throw runtime_error("this captain belong to other team");
+    }
     fighters.push_back(leader);
+    leader->setBelongToTeam(true);
 }
 

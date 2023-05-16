@@ -19,6 +19,7 @@ void Point::print() const{
 }
 
 Point Point::moveTowards(Point &src, Point &dest, double distance) {
+    if (distance < 0) throw invalid_argument("Distance cant be negative");
     // Calculate the distance between the source and destination points
     double dist = src.distance(dest);
 
@@ -33,7 +34,8 @@ Point Point::moveTowards(Point &src, Point &dest, double distance) {
     double x = src.getXCoordinate() + (dest.getXCoordinate() - src.getXCoordinate()) * ratio;
     double y = src.getYCoordinate() + (dest.getYCoordinate() - src.getYCoordinate()) * ratio;
 
-    return Point(x, y);
+    Point closetPoint(x,y);
+    return closetPoint;
 }
 
 

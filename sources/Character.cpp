@@ -41,14 +41,14 @@ string Character::print() {
     return s;
 }
 
-
-int Character::getTeam() const {
-    return team;
+bool Character::isBelongToTeam() const {
+    return belongToTeam;
 }
 
-void Character::setTeam(int team) {
-    this->team = team;
+void Character::setBelongToTeam(bool belongToTeam) {
+    Character::belongToTeam = belongToTeam;
 }
+
 
 
 
