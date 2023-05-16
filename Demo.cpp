@@ -16,55 +16,10 @@ using namespace std;
 
 using namespace ariel;
 
-
 int main() {
-
-
-    /**
-     * shoot(2);
-        cowboy->reload();
-        shoot(6);
-        CHECK(target->isAlive()); // Target should still be alive with 10 hit points if the cowboys damage is 10
-        shoot(1);
-        CHECK(target->isAlive()); // Reloading when the magazine isn't empty shouldn't result in more than 6 bullets, the previous shoot should have no effect //TODO
-        cowboy->reload();
-        shoot(1);
-        CHECK_FALSE(target->isAlive()); // Target should be dead
-     */
-
-
     Point a(32.3,44),b(1.3,3.5);
 //    assert(a.distance(b) == b.distance(a));
-    Cowboy *tom = new Cowboy("Tom", a);
-    OldNinja *sushi = new OldNinja("sushi", b);
-    cout << "hit points in the begining: " << sushi->getHitPoints() << endl;
 
-    for ( int i = 0; i < 6; i++ )  tom->shoot(sushi);
-    cout << "hit points after 6: " << sushi->getHitPoints() << endl;
-
-    tom->shoot(sushi);
-    cout << "hit points after 1: " << sushi->getHitPoints() << endl;
-
-    tom->reload();
-
-    for ( int i = 0; i < 2; i++ ) tom->shoot(sushi);
-    cout << "hit points after 2: " << sushi->getHitPoints() << endl;
-
-    tom->reload();
-
-    for ( int i = 0; i < 6; i++ )  tom->shoot(sushi);
-    cout << "hit points after 6: " << sushi->getHitPoints() << endl;
-    (sushi->isAlive()) ? cout << "isALive" << endl : cout << "not Alive" << endl;
-
-    tom->shoot(sushi);
-    cout << "hit points after 1: " << sushi->getHitPoints() << endl;
-    (sushi->isAlive()) ? cout << "isALive" << endl : cout << "not Alive" << endl;
-
-    tom->reload();
-
-    tom->shoot(sushi);
-    cout << "hit points after 1: " << sushi->getHitPoints() << endl;
-    (sushi->isAlive()) ? cout << "isALive" << endl : cout << "not Alive" << endl;
 
 
 

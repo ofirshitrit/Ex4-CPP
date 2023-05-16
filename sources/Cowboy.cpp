@@ -16,6 +16,9 @@ string Cowboy::print() {
 
 void Cowboy::shoot(Character *enemy) {
     if (enemy == this) throw runtime_error("character cant heart itself");
+    if (!enemy->isAlive()) throw runtime_error("cant shoot a dead enemy");
+    if (!this->isAlive()) throw runtime_error("dead cowboy cant shoot");
+
     if (this->hasboolets() && this->isAlive()) {
         enemy->hit(10);
         this->numOfBalls--;
