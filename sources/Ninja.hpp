@@ -18,7 +18,7 @@ namespace ariel {
 
         std::string print() override;
 
-        void move(const Character* enemy);
+        void move(Character* enemy);
 
         void slash(Character* enemy);
 

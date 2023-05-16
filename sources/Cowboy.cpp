@@ -29,7 +29,7 @@ bool Cowboy::hasboolets() {
 
 void Cowboy::reload() {
     if (!isAlive()) throw runtime_error("dead cowboy can reload");
-    this->numOfBalls += 6;
+    this->numOfBalls = 6;
 }
 
 int Cowboy::getNumOfBalls() const {

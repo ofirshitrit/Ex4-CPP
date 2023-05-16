@@ -200,91 +200,91 @@ TEST_SUITE("Classes initialization tests and Team modification( add(),stillAlive
         team1.add(teammate2);
         CHECK_THROWS_AS(team2.add(teammate1),std::runtime_error);
         CHECK_THROWS_AS(team3.add(teammate1),std::runtime_error);
-        CHECK_THROWS_AS(team2.add(teammate2),std::runtime_error); //TODO
+        CHECK_THROWS_AS(team2.add(teammate2),std::runtime_error);
         CHECK_THROWS_AS(team3.add(teammate2),std::runtime_error);
     }
 }
 ////
 ////
-//TEST_SUITE("Battle related methods") {
-//
-//    TEST_CASE("Cowboy shoot() and reload() methods") {
-//        auto cowboy = create_cowboy();
-//        auto target = create_oninja();
-//
-//        auto shoot = [&](int times) {
-//            for (int i = 0; i < times; i++) {
-//                cowboy->shoot(target);
-//            }
-//        };
-//
-//        shoot(6);
-//        CHECK_FALSE(cowboy->hasboolets());
-//        CHECK_NOTHROW(cowboy->shoot(target)); // This should not damage the target
-//        cowboy->reload();
-//
-//        shoot(2);
-//        cowboy->reload();
-//        shoot(6);
-//        CHECK(target->isAlive()); // Target should still be alive with 10 hit points if the cowboys damage is 10
-//        shoot(1);
-//        CHECK(target->isAlive()); // Reloading when the magazine isn't empty shouldn't result in more than 6 bullets, the previous shoot should have no effect //TODO
-//        cowboy->reload();
-//        shoot(1);
-//        CHECK_FALSE(target->isAlive()); // Target should be dead
-//    }
+TEST_SUITE("Battle related methods") {
+
+    TEST_CASE("Cowboy shoot() and reload() methods") {
+        auto cowboy = create_cowboy();
+        auto target = create_oninja();
+
+        auto shoot = [&](int times) {
+            for (int i = 0; i < times; i++) {
+                cowboy->shoot(target);
+            }
+        };
+
+        shoot(6);
+        CHECK_FALSE(cowboy->hasboolets());
+        CHECK_NOTHROW(cowboy->shoot(target)); // This should not damage the target
+        cowboy->reload();
+
+        shoot(2);
+        cowboy->reload();
+        shoot(6);
+        CHECK(target->isAlive()); // Target should still be alive with 10 hit points if the cowboys damage is 10
+        shoot(1);
+        CHECK(target->isAlive()); // Reloading when the magazine isn't empty shouldn't result in more than 6 bullets, the previous shoot should have no effect //TODO
+        cowboy->reload();
+        shoot(1);
+        CHECK_FALSE(target->isAlive()); // Target should be dead
+    }
 //
 ////
-//    TEST_CASE("Ninjas hit points are different") {
-//        auto old = create_oninja();
-//        auto trained = create_tninja();
-//        auto young = create_yninja();
-//        auto cowboy = create_cowboy();
-//        for (int i = 0; i < 15; i++) {
-//            cowboy->reload();
+    TEST_CASE("Ninjas hit points are different") {
+        auto old = create_oninja();
+        auto trained = create_tninja();
+        auto young = create_yninja();
+        auto cowboy = create_cowboy();
+        for (int i = 0; i < 15; i++) {
+            cowboy->reload();
+
+            // After 10 shots, young should die
+            if (i < 10) {
+                CHECK(young->isAlive());
+                cowboy->shoot(young);
+            }
+
+            // After 12 shots, trained should die
+            if (i < 12) {
+                CHECK(trained->isAlive());
+                cowboy->shoot(trained);
+            }
+
+            // Old should only die on the last iteration of the for loop
+            CHECK(old->isAlive());
+            cowboy->shoot(old);
+        }
+
+        CHECK_FALSE((old->isAlive() || young->isAlive() || trained->isAlive()));
+    }
 //
-//            // After 10 shots, young should die
-//            if (i < 10) {
-//                CHECK(young->isAlive());
-//                cowboy->shoot(young);
-//            }
-//
-//            // After 12 shots, trained should die
-//            if (i < 12) {
-//                CHECK(trained->isAlive());
-//                cowboy->shoot(trained);
-//            }
-//
-//            // Old should only die on the last iteration of the for loop
-//            CHECK(old->isAlive());
-//            cowboy->shoot(old);
-//        }
-//
-//        CHECK_FALSE((old->isAlive() || young->isAlive() || trained->isAlive()));
-//    }
-//
-//    TEST_CASE("Ninjas speeds are different") {
-//        OldNinja old{"Bob", Point{random_float() + 15, random_float() + 15}};
-//        TrainedNinja trained{"Kung fu panda", Point{random_float() + 15, random_float() + 15}};
-//        YoungNinja young{"Karate kid", Point{random_float() + 15, random_float() + 15}};
-//        Cowboy cowboy{"Clint", Point{0, 0}};
-//
-//        double old_distance = old.distance(&cowboy);
-//        double young_distance = young.distance(&cowboy);
-//        double trained_distance = trained.distance(&cowboy);
-//
-//        old.move(&cowboy);
-//        trained.move(&cowboy);
-//        young.move(&cowboy);
-//
-//        // The new distance should equal the old distance minus the speed of the specific ninja
-//        CHECK_EQ(old.distance(&cowboy),
-//                 doctest::Approx(old_distance - 8).epsilon(0.001));
-//        CHECK_EQ(trained.distance(&cowboy),
-//                 doctest::Approx(trained_distance - 12).epsilon(0.001)); //TODO
-//        CHECK_EQ(young.distance(&cowboy),
-//                 doctest::Approx(young_distance - 14).epsilon(0.001));
-//    }
+    TEST_CASE("Ninjas speeds are different") {
+        OldNinja old{"Bob", Point{random_float() + 15, random_float() + 15}};
+        TrainedNinja trained{"Kung fu panda", Point{random_float() + 15, random_float() + 15}};
+        YoungNinja young{"Karate kid", Point{random_float() + 15, random_float() + 15}};
+        Cowboy cowboy{"Clint", Point{0, 0}};
+
+        double old_distance = old.distance(&cowboy);
+        double young_distance = young.distance(&cowboy);
+        double trained_distance = trained.distance(&cowboy);
+
+        old.move(&cowboy);
+        trained.move(&cowboy);
+        young.move(&cowboy);
+
+        // The new distance should equal the old distance minus the speed of the specific ninja
+        CHECK_EQ(old.distance(&cowboy),
+                 doctest::Approx(old_distance - 8).epsilon(0.001));
+        CHECK_EQ(trained.distance(&cowboy),
+                 doctest::Approx(trained_distance - 12).epsilon(0.001)); //TODO
+        CHECK_EQ(young.distance(&cowboy),
+                 doctest::Approx(young_distance - 14).epsilon(0.001));
+    }
 //
 //    TEST_CASE("Ninjas can only slash when distance is less than 1") {
 //        OldNinja old{"Bob", Point{0, 0}};
@@ -407,7 +407,7 @@ TEST_SUITE("Classes initialization tests and Team modification( add(),stillAlive
 //        CHECK_THROWS_AS(oninja->slash(oninja), std::runtime_error);
 //        CHECK_THROWS_AS(tninja->slash(tninja), std::runtime_error);
 //    }
-//}
+}
 //
 //TEST_SUITE("Battle simulations") {
 //// TODO

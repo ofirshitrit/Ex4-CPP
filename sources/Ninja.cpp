@@ -14,9 +14,9 @@ string Ninja::print() {
    return s;
 }
 
-void Ninja::move(const Character* enemy) { //TODO
-    double x = this->getLocation().getXCoordinate();
-    x =  x + this->_speed;
+void Ninja::move(Character* enemy) {
+    if (enemy == this) throw invalid_argument("the enemy cant be itself");
+    Point::moveTowards(this->_location,enemy->getLocation(),this->_speed);
 }
 
 void Ninja::slash(Character* enemy) {

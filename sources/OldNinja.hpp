@@ -10,7 +10,6 @@
 
 namespace ariel {
     class OldNinja : public Ninja {
-    private:
     public:
         OldNinja(std::string name, Point p) : Ninja(150, name, p, 8) {}
 
