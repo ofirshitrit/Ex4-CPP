@@ -35,8 +35,15 @@ namespace ariel {
 
         Character *getLeader() const;
 
-        const std::vector<Character *> &getFighters() const;
+        std::vector<Character *> &getFighters();
 
+        Character *getNewLeader();
+
+        Character *getVictim(Team *enemies);
+
+        void removeVictim(Team *enemies, Character *victim);
+
+        void attackVictim(Character *victim);
     };
 }
 
