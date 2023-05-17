@@ -21,8 +21,8 @@ void Team::attack(Team* enemies) {
         Character* victim = chooseVictim(enemies);
         while (victim->isAlive()) {
             attackVictim(victim);
-
         }
+        cout << victim->getName() << " is dead" << endl;
         removeVictim(enemies, victim);
     }
     cout << "The enemy is dead!" << endl;
