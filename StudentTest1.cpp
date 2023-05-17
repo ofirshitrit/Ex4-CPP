@@ -445,6 +445,10 @@ TEST_SUITE("Battle simulations") {
         CHECK_EQ(team2.stillAlive(), 7);
 
         multi_attack(2, team, team2);
+        std::cout << "Team after: " << std::endl;
+        team.print();
+        std::cout << "Team2 after: " << std::endl;
+        team2.print();
         CHECK_FALSE(young_ninja->isAlive()); // Young ninja should be dead
         CHECK((trained_ninja->isAlive() && old_ninja->isAlive() &&
                young_ninja2->isAlive())); // Everyone else should still be alive

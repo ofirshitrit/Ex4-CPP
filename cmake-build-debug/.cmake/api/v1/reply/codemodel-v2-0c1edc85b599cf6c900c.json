@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/ofir/CLionProjects/EX4-CPP-B/cmake-build-debug",
-		"source" : "/home/ofir/CLionProjects/EX4-CPP-B"
+		"build" : "/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug",
+		"source" : "/home/ofr/CLionProjects/Ex4-CPP-B"
 	},
 	"version" : 
 	{

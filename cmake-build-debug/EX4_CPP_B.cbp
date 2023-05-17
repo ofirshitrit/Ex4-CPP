@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="EX4_CPP_B"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="EX4_CPP_B">
+				<Option output="/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug/EX4_CPP_B" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug/Makefile&quot;  VERBOSE=1 EX4_CPP_B"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="EX4_CPP_B/fast">
+				<Option output="/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug/EX4_CPP_B" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug/Makefile&quot;  VERBOSE=1 EX4_CPP_B/fast"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/ofr/CLionProjects/Ex4-CPP-B/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/Demo.cpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/StudentTest1.cpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/TestRunner.cpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/sources/Character.cpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/sources/Character.hpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/sources/Cowboy.cpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/sources/Cowboy.hpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/sources/Ninja.cpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/sources/Ninja.hpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/sources/OldNinja.cpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/sources/OldNinja.hpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/sources/Point.cpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/sources/Point.hpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/sources/SmartTeam.cpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/sources/SmartTeam.hpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/sources/Team.cpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/sources/Team.hpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/sources/Team2.cpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/sources/Team2.hpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/sources/TrainedNinja.cpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/sources/TrainedNinja.hpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/sources/YoungNinja.cpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/sources/YoungNinja.hpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
