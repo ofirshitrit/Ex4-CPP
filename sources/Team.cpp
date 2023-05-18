@@ -42,7 +42,7 @@ int Team::stillAlive() {
 void Team::print() {
     for(unsigned int i = 0; i < this->fighters.size(); i++)
     {
-       cout << this->fighters[i]->print() << endl;
+        cout << this->fighters[i]->print() << endl;
     }
 }
 
@@ -60,7 +60,7 @@ Character *Team::getLeader() const {
     return _leader;
 }
 
- std::vector<Character *> &Team::getFighters(){
+std::vector<Character *> &Team::getFighters(){
     return fighters;
 }
 

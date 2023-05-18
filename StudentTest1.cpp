@@ -476,7 +476,7 @@ TEST_SUITE("Battle simulations") {
      * A hyphen (-) denotes a distance of one.
      * */
     TEST_CASE("The closest teammate to the captain is appointed as captain") {
-    //todo
+        //todo
         auto team_c1 = create_cowboy(0, 0);
         auto team2_c1 = create_cowboy(-2, 0);
         auto team_c2 = create_cowboy(-3, 0);
