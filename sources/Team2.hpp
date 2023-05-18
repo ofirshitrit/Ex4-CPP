@@ -15,9 +15,9 @@ namespace ariel {
 
         ~Team2() = default;
 
-        void attack(Team *other) override;
-
         void print() override;
+
+        void add(Character* character) override;
 
     };
 

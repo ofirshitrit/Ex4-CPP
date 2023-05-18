@@ -18,61 +18,98 @@ using namespace ariel;
 
 int main() {
     Point a(0,0),b(0,0.5),c(0,3),d(0,10);
-    Cowboy *tom = new Cowboy("Tom", a);
-    Cowboy *t = new Cowboy("T", a);
-    Cowboy *to = new Cowboy("To", d);
-    Cowboy *tom1 = new Cowboy("Tom1", d);
+    Cowboy* cowboy = new Cowboy("c", Point{-1,-1});
+    Cowboy* cowboyy = new Cowboy("cy", Point{2,2});
+    YoungNinja* youngNinja = new YoungNinja("yn" , Point(-0.5,-0.5));
+    OldNinja* oldNinja = new OldNinja("on" , Point(0,0));
+    TrainedNinja* trainedNinja = new TrainedNinja("tn" , Point(0.5,0.5));
+    Team team(cowboy);
+    team.add(cowboyy);
+    team.add(youngNinja);
+    team.add(oldNinja);
+    team.add(trainedNinja);
 
 
-    OldNinja *sush = new OldNinja("sush", d);
-    OldNinja *sushi = new OldNinja("sushi", d);
-    OldNinja *s = new OldNinja("s", b);
-    OldNinja *sus = new OldNinja("sus", c);
-    OldNinja *ssss = new OldNinja("ssss", d);
-    OldNinja *stttt = new OldNinja("stttt", d);
+    Cowboy* cowboy1 = new Cowboy("c1", Point{-6,-6});
+    Cowboy* cowboy2 = new Cowboy("c2", Point{-7,-7});
+    Cowboy* cowboy3 = new Cowboy("c3", Point{-8,-8});
+    YoungNinja* youngNinjaa = new YoungNinja("yn" , Point(0,0));
+    YoungNinja* youngNinja2 = new YoungNinja("yn2" , Point(3,3));
+    OldNinja* oldNinjaa = new OldNinja("on" , Point(2,2));
+    TrainedNinja* trainedNinjaa = new TrainedNinja("tn" , Point(1,1));
 
 
-    Team team_A(s);
-    team_A.add(sus);
-    team_A.add(tom1);
+    Team team2{youngNinjaa};
+    team2.add(trainedNinjaa);
+    team2.add(oldNinjaa);
+    team2.add(youngNinja2);
+    team2.add(cowboy1);
+    team2.add(cowboy2);
+    team2.add(cowboy3);
 
-    Team team_B(sushi);
-//    team_B.add(s);
-//    team_B.add(sus);
-    team_B.add(tom);
-    team_B.add(ssss);
-    team_B.add(stttt);
-    team_B.add(to);
+    std::cout << "TEAM 2: " << std::endl;
+    team2.print();
+    int j = 0;
+    for( int i = 1; i <=2; i++){
+        cout << " ++++++ The " << i << " attack! " << endl;
+        team.attack(&team2);
+        cout << "alive after attack: " << team2.stillAlive() << endl;
+    }
+    j = 3;
+    youngNinjaa->isAlive() ? cout << "YN Alive" << endl : cout << "YN dead" << endl;  // dead
+    oldNinjaa->isAlive() ? cout << "ON Alive" << endl : cout << "ON dead" << endl;  // alive
+    trainedNinjaa->isAlive() ? cout << "TN Alive" << endl : cout << " TN dead" << endl;  // alive
+    youngNinja2->isAlive() ? cout << "YN2 Alive" << endl : cout << " YN2 dead" << endl;  // alive
 
-    cout << "TeamA: " << endl;
-    team_A.print();
-    cout << "TeamB: " << endl;
-    team_B.print();
+    cout << "++++ The " << j << " attack! " << endl;
+    team.attack(&team2);
+    j++;
+    oldNinjaa->isAlive() ? cout << "ON Alive" << endl : cout << "ON dead" << endl;  // alive
+    trainedNinjaa->isAlive() ? cout << "TN Alive" << endl : cout << "TN dead" << endl;  // dead
+    youngNinja2->isAlive() ? cout << "YN2 Alive" << endl : cout << "YN2 dead" << endl;  // alive
 
-//    cout << tom->print() <<endl;
-//
-//    sushi->move(tom);
-//    sushi->slash(tom);
-//
-//    Team team_A(tom);
-//    team_A.add(new YoungNinja("Yogi", Point(64,57)));
-//
-//    // Team b(tom); should throw tom is already in team a
-//
-//     Team team_B(sushi);
-//     team_B.add(new TrainedNinja("Hikari", Point(12,81)));
-//
-//
-//     while(team_A.stillAlive() > 0 && team_B.stillAlive() > 0){
-//        team_A.attack(&team_B);
-//        team_B.attack(&team_A);
-//        team_A.print();
-//        team_B.print();
-//     }
-//
-//     if (team_A.stillAlive() > 0) cout << "winner is team_A" << endl;
-//     else cout << "winner is team_B" << endl;
+    for( int i = 1; i <=2; i++){
+        cout << "++++ The " << j << " attack! " << endl;
+        team.attack(&team2);
+        cout << "alive after attack: " << team2.stillAlive() << endl;
+        j++;
+    }
+    trainedNinjaa->isAlive() ? cout << " TN Alive" << endl : cout << " TN dead" << endl;  // dead
+    oldNinjaa->isAlive() ? cout << "ON Alive" << endl : cout << "ON dead" << endl;  // dead
+    youngNinja2->isAlive() ? cout << "YN2 Alive" << endl : cout << "YN2 dead" << endl;  // alive
 
-     return 0; // no memory issues. Team should free the memory of its members. both a and b teams are on the stack.
+    for( int i = 1; i <=4; i++){
+        cout << " +++++ The " << j << " attack! " << endl;
+        team.attack(&team2);
+        cout << "alive after attack: " << team2.stillAlive() << endl;
+        j++;
+    }
+    oldNinjaa->isAlive() ? cout << "ON Alive" << endl : cout << "ON dead" << endl;  // dead
+    youngNinja2->isAlive() ? cout << "YN2 Alive" << endl : cout << " YN2 dead" << endl;  // dead
+
+    for( int i = 1; i <=2; i++){
+        cout << "++++ The " << j << " attack! " << endl;
+        team.attack(&team2);
+        cout << "alive after attack: " << team2.stillAlive() << endl;
+        j++;
+    }
+
+    cout << "++++ The " << j << " attack! " << endl;
+    team.attack(&team2);
+    cout << "alive after attack: " << team2.stillAlive() << endl;
+    youngNinja2->isAlive() ? cout << "YN2 Alive" << endl : cout << "YN2 dead" << endl;  // dead
+
+
+    team.attack(&team2); // exception
+    cout << "alive after attack: " << team2.stillAlive() << endl;
+
+
+
+
+
+
+
+
+    return 0; // no memory issues. Team should free the memory of its members. both a and b teams are on the stack.
 
 }

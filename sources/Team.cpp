@@ -14,21 +14,29 @@ using namespace std;
 void Team::attack(Team* enemies) {
     if (enemies == nullptr) throw invalid_argument("Cant attack nullptr");
     if (enemies->stillAlive() == 0) throw runtime_error("Cant attack dead team!");
+    cout << "numbers of alive fighters: " << enemies->stillAlive() << endl;
     if (!this->getLeader()->isAlive()) {
         this->_leader = getNewLeader();
     }
     Character* victim = chooseVictim(enemies);
+    cout << "The victim : " << victim->getName() << endl;
+    cout << "Victim's Hit Points: " << victim->getHitPoints() << endl;
     for (unsigned int i = 0; i < this->getFighters().size(); i++) {
         Character *fighter = this->getFighters()[i];
         attackVictim(fighter, victim);
+        cout << "Victim's Hit Points: " << victim->getHitPoints() << endl;
     }
-    removeVictim(enemies, victim);
-    cout << "The victim is dead!" << endl;
+
 }
 
 int Team::stillAlive() {
-
-    return this->fighters.size();
+    int numbersOAlive = 0;
+    for (unsigned int i = 0; i < this->getFighters().size(); i++) {
+        if(this->getFighters()[i]->isAlive()) {
+            numbersOAlive++;
+        }
+    }
+    return numbersOAlive;
 }
 
 void Team::print() {
@@ -64,6 +72,7 @@ Team::Team(Character *leader)  : _leader(leader) , fighters()
     }
     fighters.push_back(leader);
     leader->setBelongToTeam(true);
+    this->fightersAlive = 1;
 }
 
 Character *Team::getNewLeader() {

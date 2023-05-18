@@ -19,7 +19,7 @@ namespace ariel {
 
         ~SmartTeam() = default;
 
-        void attack(Team *other) override;
+        void add(Character *character) override;
 
         void print() override;
 
