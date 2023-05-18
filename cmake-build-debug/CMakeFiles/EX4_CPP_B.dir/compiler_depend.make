@@ -178,6 +178,31 @@ CMakeFiles/EX4_CPP_B.dir/Demo.cpp.o: /home/ofr/CLionProjects/Ex4-CPP-B/Demo.cpp 
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
+  /usr/include/c++/11/random \
+  /usr/include/c++/11/cmath \
+  /usr/include/math.h \
+  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+  /usr/include/c++/11/limits \
+  /usr/include/c++/11/bits/random.h \
+  /usr/include/c++/11/vector \
+  /usr/include/c++/11/bits/stl_uninitialized.h \
+  /usr/include/c++/11/bits/stl_vector.h \
+  /usr/include/c++/11/bits/stl_bvector.h \
+  /usr/include/c++/11/bits/vector.tcc \
+  /usr/include/c++/11/bits/uniform_int_dist.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/opt_random.h \
+  /usr/include/c++/11/bits/random.tcc \
+  /usr/include/c++/11/numeric \
+  /usr/include/c++/11/bits/stl_numeric.h \
+  /usr/include/c++/11/bit \
   /usr/include/c++/11/fstream \
   /usr/include/c++/11/bits/codecvt.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
@@ -188,16 +213,10 @@ CMakeFiles/EX4_CPP_B.dir/Demo.cpp.o: /home/ofr/CLionProjects/Ex4-CPP-B/Demo.cpp 
   /usr/include/c++/11/cassert \
   /usr/include/assert.h \
   /home/ofr/CLionProjects/Ex4-CPP-B/sources/Team.hpp \
-  /usr/include/c++/11/vector \
-  /usr/include/c++/11/bits/stl_uninitialized.h \
-  /usr/include/c++/11/bits/stl_vector.h \
-  /usr/include/c++/11/bits/stl_bvector.h \
-  /usr/include/c++/11/bits/vector.tcc \
   /usr/include/c++/11/memory \
   /usr/include/c++/11/bits/stl_tempbuf.h \
   /usr/include/c++/11/bits/stl_raw_storage_iter.h \
   /usr/include/c++/11/bits/align.h \
-  /usr/include/c++/11/bit \
   /usr/include/c++/11/bits/uses_allocator.h \
   /usr/include/c++/11/bits/unique_ptr.h \
   /usr/include/c++/11/utility \
@@ -2775,24 +2794,6 @@ CMakeFiles/EX4_CPP_B.dir/sources/YoungNinja.cpp.o: /home/ofr/CLionProjects/Ex4-C
 
 /usr/include/c++/11/ratio:
 
-/usr/include/c++/11/cstring:
-
-/usr/include/c++/11/bits/stl_numeric.h:
-
-/usr/include/c++/11/bits/random.tcc:
-
-/usr/include/c++/11/bits/random.h:
-
-/usr/include/x86_64-linux-gnu/bits/sigevent-consts.h:
-
-/usr/include/c++/11/limits:
-
-/usr/include/x86_64-linux-gnu/bits/math-vector.h:
-
-/usr/include/math.h:
-
-/usr/include/c++/11/random:
-
 /home/ofr/CLionProjects/Ex4-CPP-B/doctest.h:
 
 /home/ofr/CLionProjects/Ex4-CPP-B/StudentTest1.cpp:
@@ -2835,23 +2836,9 @@ CMakeFiles/EX4_CPP_B.dir/sources/YoungNinja.cpp.o: /home/ofr/CLionProjects/Ex4-C
 
 /usr/include/c++/11/utility:
 
-/usr/include/c++/11/bit:
-
 /home/ofr/CLionProjects/Ex4-CPP-B/sources/OldNinja.cpp:
 
 /usr/include/c++/11/memory:
-
-/usr/include/x86_64-linux-gnu/bits/types/stack_t.h:
-
-/usr/include/c++/11/bits/vector.tcc:
-
-/usr/include/c++/11/bits/stl_heap.h:
-
-/usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
-
-/usr/include/c++/11/bits/stl_bvector.h:
-
-/usr/include/c++/11/vector:
 
 /home/ofr/CLionProjects/Ex4-CPP-B/sources/Team.hpp:
 
@@ -2867,9 +2854,41 @@ CMakeFiles/EX4_CPP_B.dir/sources/YoungNinja.cpp.o: /home/ofr/CLionProjects/Ex4-C
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h:
 
-/usr/include/c++/11/numeric:
+/usr/include/c++/11/bit:
+
+/usr/include/c++/11/cstring:
+
+/usr/include/c++/11/bits/stl_numeric.h:
 
 /usr/include/c++/11/fstream:
+
+/usr/include/c++/11/numeric:
+
+/usr/include/c++/11/bits/random.tcc:
+
+/usr/include/x86_64-linux-gnu/bits/types/stack_t.h:
+
+/usr/include/c++/11/bits/vector.tcc:
+
+/usr/include/c++/11/vector:
+
+/usr/include/c++/11/bits/random.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigevent-consts.h:
+
+/usr/include/c++/11/limits:
+
+/usr/include/c++/11/bits/stl_heap.h:
+
+/usr/include/c++/11/bits/stl_bvector.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
+
+/usr/include/x86_64-linux-gnu/bits/math-vector.h:
+
+/usr/include/math.h:
+
+/usr/include/c++/11/random:
 
 /usr/include/c++/11/bits/istream.tcc:
 
@@ -2883,9 +2902,9 @@ CMakeFiles/EX4_CPP_B.dir/sources/YoungNinja.cpp.o: /home/ofr/CLionProjects/Ex4-C
 
 /usr/include/wctype.h:
 
-/usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
-
 /usr/include/c++/11/bits/stl_uninitialized.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
 
 /usr/include/c++/11/cwctype:
 
@@ -2951,9 +2970,9 @@ CMakeFiles/EX4_CPP_B.dir/sources/YoungNinja.cpp.o: /home/ofr/CLionProjects/Ex4-C
 
 /usr/include/c++/11/ext/type_traits.h:
 
-/usr/include/x86_64-linux-gnu/c++/11/bits/opt_random.h:
-
 /home/ofr/CLionProjects/Ex4-CPP-B/sources/Ninja.hpp:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/opt_random.h:
 
 /usr/include/c++/11/ios:
 

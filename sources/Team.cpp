@@ -126,13 +126,15 @@ void Team::cowboyAttack(Cowboy* cowboy, Character* victim)
 void Team::ninjaAttack(Ninja* ninja, Character* victim)
 {
     if ( victim->isAlive()) {
-        if(ninja->getLocation().distance(victim->getLocation()) < 1) { //the distance less than one meter
+        if(ninja->getLocation().distance(victim->getLocation()) <= 1) { //the distance less than one meter
             cout << ninja->getName() << " slash " << victim->getName() << endl;
             ninja->slash(victim);
         }
         else {
             cout << ninja->getName() << " move " << endl;
             ninja->move(victim);
+            cout << ninja->getName() << " is now at: " ;
+            ninja->getLocation().print();
         }
     }
 }
