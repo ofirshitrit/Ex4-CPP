@@ -17,15 +17,12 @@ void Team::attack(Team* enemies) {
     if (!enemies->getLeader()->isAlive()) {
         this->_leader = getNewLeader();
     }
-    while (!enemies->getFighters().empty()) {
-        Character* victim = chooseVictim(enemies);
-        while (victim->isAlive()) {
-            attackVictim(victim);
-        }
-        cout << victim->getName() << " is dead" << endl;
-        removeVictim(enemies, victim);
+    Character* victim = chooseVictim(enemies);
+    while (victim->isAlive()) {
+        attackVictim(victim);
     }
-    cout << "The enemy is dead!" << endl;
+    removeVictim(enemies, victim);
+    cout << "The victim is dead!" << endl;
 }
 
 int Team::stillAlive() {
@@ -81,11 +78,12 @@ Character *Team::chooseVictim(Team *enemies) {
 
 void Team::removeVictim(Team* enemies, Character* victim) {
     if (enemies == this) throw runtime_error("Team cant remove a victim from itself ");
-    std::vector<Character*>& fighters = enemies->getFighters();
-    for (auto it = fighters.begin(); it != fighters.end(); ++it) {
-        if (*it == victim) {
-            fighters.erase(it);  // Remove the victim using the iterator
-            break;  // Break the loop after removing the element
+    if (!enemies->getFighters().empty()) {
+        for (auto it = enemies->getFighters().begin(); it != enemies->getFighters().end(); ++it) {
+            if (*it == victim) {
+                enemies->getFighters().erase(it);  // Remove the victim using the iterator
+                break;  // Break the loop after removing the element
+            }
         }
     }
 }

@@ -417,7 +417,7 @@ TEST_SUITE("Battle simulations") {
             }
         }
     };
-//
+//TODO - check again the attack function
     TEST_CASE("Characters attack the closest enemy to the captain and ignore dead enemies ") {
         Team team{create_cowboy(-1, -1)};
         team.add(create_yninja(0, 0));
@@ -445,10 +445,6 @@ TEST_SUITE("Battle simulations") {
         CHECK_EQ(team2.stillAlive(), 7);
 
         multi_attack(2, team, team2);
-        std::cout << "Team after: " << std::endl;
-        team.print();
-        std::cout << "Team2 after: " << std::endl;
-        team2.print();
         CHECK_FALSE(young_ninja->isAlive()); // Young ninja should be dead
         CHECK((trained_ninja->isAlive() && old_ninja->isAlive() &&
                young_ninja2->isAlive())); // Everyone else should still be alive
@@ -471,13 +467,13 @@ TEST_SUITE("Battle simulations") {
         CHECK_FALSE(young_ninja2->isAlive()); // Young ninja should be dead
         CHECK_THROWS_AS(team.attack(&team2), std::runtime_error); // Attacking a dead team should throw an exception
     }
-//
-//    /*
-//     * In this test only cowboys are used because they are stationary. This allows us to better keep track of everyone's position to better test for captains assignment.
-//     * The characters are organized as such:
-//     * 2-1--2-[C1]-[C2]--2--1
-//     * A hyphen (-) denotes a distance of one.
-//     * */
+
+    /*
+     * In this test only cowboys are used because they are stationary. This allows us to better keep track of everyone's position to better test for captains assignment.
+     * The characters are organized as such:
+     * 2-1--2-[C1]-[C2]--2--1
+     * A hyphen (-) denotes a distance of one.
+     * */
 //    TEST_CASE("The closest teammate to the captain is appointed as captain") {
 //    //todo
 //        auto team_c1 = create_cowboy(0, 0);
@@ -532,7 +528,7 @@ TEST_SUITE("Battle simulations") {
 //        for (int i = 0; i < 4; i++) {
 //            team.add(create_cowboy());
 //        }
-//
+////
 //        auto char1 = create_yninja(0, 0);
 //        auto char2 = create_yninja(0, 0);
 //        auto char3 = create_yninja(0, 0);
@@ -542,7 +538,7 @@ TEST_SUITE("Battle simulations") {
 //        team2.add(char2);
 //        team2.add(char3);
 //        team2.add(char4);
-//    //TODO
+//        //TODO
 //        // Young ninjas have 100 hit points. 2 attacks should result in 10 shots, killing only one, if they all target the same enemy
 //        multi_attack(2, team, team2);
 //        CHECK_EQ(team2.stillAlive(), 3);
