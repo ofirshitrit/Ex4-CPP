@@ -43,11 +43,13 @@ namespace ariel {
 
         void removeVictim(Team *enemies, Character *victim);
 
-        void attackVictim(Character *victim);
+        void attackVictim(Character* fighter, Character *victim);
 
         Character* pickMember(Team* team);
         void cowboyAttack(Cowboy* cowboy, Character* victim);
         void ninjaAttack(Ninja* ninja, Character* victim);
+
+        void addSorted(Character *character);
     };
 }
 

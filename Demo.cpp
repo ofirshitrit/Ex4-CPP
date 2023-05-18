@@ -17,11 +17,37 @@ using namespace std;
 using namespace ariel;
 
 int main() {
-    Point a(32.3,44),b(1.3,3.5);
-//    assert(a.distance(b) == b.distance(a));
+    Point a(0,0),b(0,0.5),c(0,3),d(0,10);
+    Cowboy *tom = new Cowboy("Tom", a);
+    Cowboy *t = new Cowboy("T", a);
+    Cowboy *to = new Cowboy("To", d);
+    Cowboy *tom1 = new Cowboy("Tom1", d);
 
 
+    OldNinja *sush = new OldNinja("sush", d);
+    OldNinja *sushi = new OldNinja("sushi", d);
+    OldNinja *s = new OldNinja("s", b);
+    OldNinja *sus = new OldNinja("sus", c);
+    OldNinja *ssss = new OldNinja("ssss", d);
+    OldNinja *stttt = new OldNinja("stttt", d);
 
+
+    Team team_A(s);
+    team_A.add(sus);
+    team_A.add(tom1);
+
+    Team team_B(sushi);
+//    team_B.add(s);
+//    team_B.add(sus);
+    team_B.add(tom);
+    team_B.add(ssss);
+    team_B.add(stttt);
+    team_B.add(to);
+
+    cout << "TeamA: " << endl;
+    team_A.print();
+    cout << "TeamB: " << endl;
+    team_B.print();
 
 //    cout << tom->print() <<endl;
 //
