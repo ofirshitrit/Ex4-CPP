@@ -9,27 +9,70 @@ using namespace ariel;
 using namespace std;
 
 
-
+Team::Team(Character *leader)  : _leader(leader) , fighters()
+{
+    if (leader->isBelongToTeam()) {
+        this->fighters.pop_back(); //remove the leader
+        throw runtime_error("This captain belong to another team");
+    }
+    fighters.push_back(leader);
+    leader->setBelongToTeam(true);
+    this->fightersAlive = 1;
+}
 
 void Team::attack(Team* enemies) {
     if (enemies == nullptr) throw invalid_argument("Cant attack nullptr");
     if (enemies->stillAlive() == 0) throw runtime_error("Cant attack dead team!");
-//    cout << "numbers of alive fighters: " << enemies->stillAlive() << endl;
     if (!this->getLeader()->isAlive()) {
         this->_leader = getNewLeader();
     }
     Character* victim = chooseVictim(enemies);
-//    cout << victim->getName() << "'s Hit Points: " << victim->getHitPoints() << endl;
-//    cout << victim->getName() << " is in: " ;
-//    victim->getLocation().print();
     for (unsigned int i = 0; i < this->getFighters().size(); i++) {
         Character *fighter = this->getFighters()[i];
-        attackVictim(fighter, victim);
-//        cout << victim->getName() << "'s Hit Points: " << victim->getHitPoints() << endl;
+        if (victim->isAlive() && fighter->isAlive()) {
+            attackVictim(fighter, victim);
+        }
     }
-//    if(!victim->isAlive()) cout << victim->getName() << " dead!" << endl;
-
 }
+
+
+void Team::attackVictim(Character *fighter, Character *victim) {
+    if (Cowboy *cowboy = dynamic_cast<Cowboy *>(fighter)) {
+        cowboy->attack(victim);
+    } else if (Ninja *ninja = dynamic_cast<Ninja *>(fighter)) {
+        ninja->attack(victim);
+    }
+}
+
+
+Character *Team::getNewLeader() {
+    Character* newLeader = pickMember(this);
+    return newLeader;
+}
+
+
+Character *Team::chooseVictim(Team *enemies) {
+    if (enemies == this) throw runtime_error("Team cant choose a victim from itself ");
+    Character* victim = pickMember(enemies);
+    return victim;
+}
+
+Character* Team::pickMember(Team* team){
+    Character* member = nullptr;
+    double minDistance = 100000000;
+    for( unsigned int i = 0; i < team->getFighters().size(); i++){
+        if (team->getFighters()[i]->isAlive()){
+            double currDistance = team->getFighters()[i]->getLocation().distance(this->_leader->getLocation());
+            if (currDistance < minDistance){
+                minDistance = currDistance;
+                member = team->getFighters()[i];
+            }
+        }
+    }
+    return member;
+}
+
+
 
 int Team::stillAlive() {
     int numbersOAlive = 0;
@@ -65,57 +108,6 @@ Character *Team::getLeader() const {
 std::vector<Character *> &Team::getFighters(){
     return fighters;
 }
-
-Team::Team(Character *leader)  : _leader(leader) , fighters()
-{
-    if (leader->isBelongToTeam()) {
-        this->fighters.pop_back(); //remove the leader
-        throw runtime_error("This captain belong to another team");
-    }
-    fighters.push_back(leader);
-    leader->setBelongToTeam(true);
-    this->fightersAlive = 1;
-}
-
-Character *Team::getNewLeader() {
-    Character* newLeader = pickMember(this);
-    return newLeader;
-}
-
-Character *Team::chooseVictim(Team *enemies) {
-    if (enemies == this) throw runtime_error("Team cant choose a victim from itself ");
-    Character* victim = pickMember(enemies);
-    return victim;
-}
-
-
-void Team::attackVictim(Character* fighter, Character *victim) {
-    if (fighter->isAlive()) {
-        if (Cowboy *cowboy = dynamic_cast<Cowboy *>(fighter)) {
-            cowboy->attack(victim);
-        }
-        else if (Ninja* ninja = dynamic_cast<Ninja*>(fighter)) {
-            ninja->attack(victim);
-        }
-    }
-}
-
-
-Character* Team::pickMember(Team* team){
-    Character* member = nullptr;
-    double minDistance = 100000000;
-    for( unsigned int i = 0; i < team->getFighters().size(); i++){
-        if (team->getFighters()[i]->isAlive()){
-            double currDistance = team->getFighters()[i]->getLocation().distance(this->_leader->getLocation());
-            if (currDistance < minDistance){
-                minDistance = currDistance;
-                member = team->getFighters()[i];
-            }
-        }
-    }
-    return member;
-}
-
 void Team::addSorted(Character *character) {
     if (Cowboy *cowboy = dynamic_cast<Cowboy *>(character)) {
         fighters.insert(fighters.begin(), character);  // Add cowboy at the beginning
