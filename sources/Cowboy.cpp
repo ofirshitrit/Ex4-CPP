@@ -40,14 +40,10 @@ int Cowboy::getNumOfBalls() const {
 }
 
 
-void Cowboy::attack(Character* victim)
-{
-    if (victim->isAlive()) {
-        if (this->hasboolets()) {
-            this->shoot(victim);
-        }
-        else {
-            this->reload();
-        }
+void Cowboy::attack(Character *victim) {
+    if (this->hasboolets()) {
+        this->shoot(victim);
+    } else {
+        this->reload();
     }
 }

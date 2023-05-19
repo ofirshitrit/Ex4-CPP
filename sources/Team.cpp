@@ -23,9 +23,11 @@ Team::Team(Character *leader)  : _leader(leader) , fighters()
 void Team::attack(Team* enemies) {
     if (enemies == nullptr) throw invalid_argument("Cant attack nullptr");
     if (enemies->stillAlive() == 0) throw runtime_error("Cant attack dead team!");
+
     if (!this->getLeader()->isAlive()) {
         this->_leader = getNewLeader();
     }
+
     Character* victim = chooseVictim(enemies);
     for (unsigned int i = 0; i < this->getFighters().size(); i++) {
         Character *fighter = this->getFighters()[i];
@@ -61,7 +63,7 @@ Character* Team::pickMember(Team* team){
     Character* member = nullptr;
     double minDistance = 100000000;
     for( unsigned int i = 0; i < team->getFighters().size(); i++){
-        if (team->getFighters()[i]->isAlive()){
+        if (team->getFighters()[i]->isAlive()){ //only if the fighter is alive it could be chosen
             double currDistance = team->getFighters()[i]->getLocation().distance(this->_leader->getLocation());
             if (currDistance < minDistance){
                 minDistance = currDistance;
@@ -117,8 +119,7 @@ void Team::addSorted(Character *character) {
 }
 
 Team::~Team() {
-//    delete _leader;
-//    for (Character* fighter : fighters) {
-//        delete fighter;
-//    }
+    for (Character* fighter : fighters) {
+        delete fighter;
+    }
 }

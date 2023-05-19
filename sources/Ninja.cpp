@@ -34,17 +34,11 @@ int Ninja::getSpeed() const {
 }
 
 
-
-
-void Ninja::attack(Character* victim)
-{
-    if ( victim->isAlive()) {
-        if(this->getLocation().distance(victim->getLocation()) < 1) { //the distance less than one meter
-            this->slash(victim);
-        }
-        else {
-            this->move(victim);
-        }
+void Ninja::attack(Character *victim) {
+    if (this->getLocation().distance(victim->getLocation()) < 1) { //the distance less than one meter
+        this->slash(victim);
+    } else {
+        this->move(victim);
     }
 }
 
