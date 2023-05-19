@@ -38,3 +38,18 @@ void Cowboy::reload() {
 int Cowboy::getNumOfBalls() const {
     return this->numOfBalls;
 }
+
+
+void Cowboy::attack(Character* victim)
+{
+    if (victim->isAlive()) {
+        if (this->hasboolets()) {
+//            cout << this->getName() << " shoot " << victim->getName() << endl;
+            this->shoot(victim);
+        }
+        else {
+//            cout << this->getName() << " reload "  << endl;
+            this->reload();
+        }
+    }
+}

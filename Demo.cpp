@@ -23,8 +23,8 @@ int main() {
 
     Cowboy* cowboy = new Cowboy("c", Point{-1,-1});
     Cowboy* cowboyy = new Cowboy("cy", Point{2,2});
-    YoungNinja* youngNinja = new YoungNinja("yn" , Point(-0.5,-0.5));
-    OldNinja* oldNinja = new OldNinja("on" , Point(0,0));
+    YoungNinja* youngNinja = new YoungNinja("yn" , Point(0,0));
+    OldNinja* oldNinja = new OldNinja("on" , Point(-0.5,-0.5));
     TrainedNinja* trainedNinja = new TrainedNinja("tn" , Point(0.5,0.5));
     Team team(cowboy);
     team.add(cowboyy);
@@ -50,8 +50,6 @@ int main() {
     team2.add(cowboy2);
     team2.add(cowboy3);
 
-    std::cout << "TEAM 2: " << std::endl;
-    team2.print();
     int j = 0;
     for( int i = 1; i <=2; i++){
         cout << " ++++++ The " << i << " attack! " << endl;
@@ -61,18 +59,11 @@ int main() {
 
     }
     j = 3;
-    youngNinjaa->isAlive() ? cout << "YN Alive" << endl : cout << "YN dead" << endl;  // dead
-    oldNinjaa->isAlive() ? cout << "ON Alive" << endl : cout << "ON dead" << endl;  // alive
-    trainedNinjaa->isAlive() ? cout << "TN Alive" << endl : cout << " TN dead" << endl;  // alive
-    youngNinja2->isAlive() ? cout << "YN2 Alive" << endl : cout << " YN2 dead" << endl;  // alive
     cout << endl;
 
     cout << "++++ The " << j << " attack! " << endl;
     team.attack(&team2);
     j++;
-    oldNinjaa->isAlive() ? cout << "ON Alive" << endl : cout << "ON dead" << endl;  // alive
-    trainedNinjaa->isAlive() ? cout << "TN Alive" << endl : cout << "TN dead" << endl;  // dead
-    youngNinja2->isAlive() ? cout << "YN2 Alive" << endl : cout << "YN2 dead" << endl;  // alive
     cout << endl;
 
     for( int i = 1; i <=2; i++){
@@ -82,9 +73,6 @@ int main() {
         cout << endl;
         j++;
     }
-    trainedNinjaa->isAlive() ? cout << " TN Alive" << endl : cout << " TN dead" << endl;  // dead
-    oldNinjaa->isAlive() ? cout << "ON Alive" << endl : cout << "ON dead" << endl;  // dead
-    youngNinja2->isAlive() ? cout << "YN2 Alive" << endl : cout << "YN2 dead" << endl;  // alive
     cout << endl;
 
     for( int i = 1; i <=4; i++){
@@ -94,8 +82,6 @@ int main() {
         cout << endl;
         j++;
     }
-    oldNinjaa->isAlive() ? cout << "ON Alive" << endl : cout << "ON dead" << endl;  // dead
-    youngNinja2->isAlive() ? cout << "YN2 Alive" << endl : cout << " YN2 dead" << endl;  // dead
 
     for( int i = 1; i <=2; i++){
         cout << "++++ The " << j << " attack! " << endl;
@@ -108,9 +94,9 @@ int main() {
     cout << "++++ The " << j << " attack! " << endl;
     team.attack(&team2);
     cout << "alive after attack: " << team2.stillAlive() << endl;
-    youngNinja2->isAlive() ? cout << "YN2 Alive" << endl : cout << "YN2 dead" << endl;  // dead
+    cout << endl;
 
-
+    cout << "This attack soulnd happend" << endl;
     team.attack(&team2); // exception
     cout << "alive after attack: " << team2.stillAlive() << endl;
 

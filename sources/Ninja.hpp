@@ -24,6 +24,8 @@ namespace ariel {
 
         int getSpeed() const;
 
+        void attack(Character* victim);
+
     };
 }
 

@@ -4,14 +4,16 @@
 
 #include "Point.hpp"
 #include <cmath>
+#include <iomanip>
 
 using namespace ariel;
 using namespace std;
 
-double Point::distance(Point other) const{
+double Point::distance(Point other) const {
     double dx = this->getXCoordinate() - other.getXCoordinate();
     double dy = this->getYCoordinate() - other.getYCoordinate();
-    return sqrt(dx * dx + dy * dy);
+    double result = sqrt(dx * dx + dy * dy);
+    return result;
 }
 
 void Point::print() const{

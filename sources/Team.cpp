@@ -14,18 +14,20 @@ using namespace std;
 void Team::attack(Team* enemies) {
     if (enemies == nullptr) throw invalid_argument("Cant attack nullptr");
     if (enemies->stillAlive() == 0) throw runtime_error("Cant attack dead team!");
-    cout << "numbers of alive fighters: " << enemies->stillAlive() << endl;
+//    cout << "numbers of alive fighters: " << enemies->stillAlive() << endl;
     if (!this->getLeader()->isAlive()) {
         this->_leader = getNewLeader();
     }
     Character* victim = chooseVictim(enemies);
-    cout << "The victim : " << victim->getName() << endl;
-    cout << "Victim's Hit Points: " << victim->getHitPoints() << endl;
+//    cout << victim->getName() << "'s Hit Points: " << victim->getHitPoints() << endl;
+//    cout << victim->getName() << " is in: " ;
+//    victim->getLocation().print();
     for (unsigned int i = 0; i < this->getFighters().size(); i++) {
         Character *fighter = this->getFighters()[i];
         attackVictim(fighter, victim);
-        cout << "Victim's Hit Points: " << victim->getHitPoints() << endl;
+//        cout << victim->getName() << "'s Hit Points: " << victim->getHitPoints() << endl;
     }
+//    if(!victim->isAlive()) cout << victim->getName() << " dead!" << endl;
 
 }
 
@@ -86,58 +88,18 @@ Character *Team::chooseVictim(Team *enemies) {
     return victim;
 }
 
-void Team::removeVictim(Team* enemies, Character* victim) {
-    if (enemies == this) throw runtime_error("Team cant remove a victim from itself ");
-    if (!enemies->getFighters().empty()) {
-        for (auto it = enemies->getFighters().begin(); it != enemies->getFighters().end(); ++it) {
-            if (*it == victim) {
-                enemies->getFighters().erase(it);  // Remove the victim using the iterator
-                break;  // Break the loop after removing the element
-            }
-        }
-    }
-}
 
 void Team::attackVictim(Character* fighter, Character *victim) {
     if (fighter->isAlive()) {
         if (Cowboy *cowboy = dynamic_cast<Cowboy *>(fighter)) {
-            cowboyAttack(cowboy, victim);
+            cowboy->attack(victim);
         }
         else if (Ninja* ninja = dynamic_cast<Ninja*>(fighter)) {
-            ninjaAttack(ninja, victim);
+            ninja->attack(victim);
         }
     }
 }
 
-void Team::cowboyAttack(Cowboy* cowboy, Character* victim)
-{
-    if (victim->isAlive()) {
-        if (cowboy->hasboolets()) {
-            cout << cowboy->getName() << " shoot " << victim->getName() << endl;
-            cowboy->shoot(victim);
-        }
-        else {
-            cout << cowboy->getName() << " reload "  << endl;
-            cowboy->reload();
-        }
-    }
-}
-
-void Team::ninjaAttack(Ninja* ninja, Character* victim)
-{
-    if ( victim->isAlive()) {
-        if(ninja->getLocation().distance(victim->getLocation()) <= 1) { //the distance less than one meter
-            cout << ninja->getName() << " slash " << victim->getName() << endl;
-            ninja->slash(victim);
-        }
-        else {
-            cout << ninja->getName() << " move " << endl;
-            ninja->move(victim);
-            cout << ninja->getName() << " is now at: " ;
-            ninja->getLocation().print();
-        }
-    }
-}
 
 Character* Team::pickMember(Team* team){
     Character* member = nullptr;
@@ -160,4 +122,11 @@ void Team::addSorted(Character *character) {
     } else if (Ninja* ninja = dynamic_cast<Ninja*>(character)) {
         fighters.push_back(character);  // Add ninja at the end
     }
+}
+
+Team::~Team() {
+//    delete _leader;
+//    for (Character* fighter : fighters) {
+//        delete fighter;
+//    }
 }

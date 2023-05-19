@@ -26,6 +26,8 @@ namespace ariel {
 
         int getNumOfBalls() const;
 
+        void attack(Character* victim);
+
     };
 }
 
