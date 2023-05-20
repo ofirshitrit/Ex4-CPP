@@ -45,7 +45,7 @@ namespace ariel {
 
         void attackByNinjas(Team* enemies, Character* victim);
         void attackByCowboys(Team* enemies, Character* victim);
-        void attackByFighterType(Character* fighter, Character* victim, Team* enemies)
+        void attackByFighterType(Character* fighter, Character* victim, Team* enemies);
 
     };
 }

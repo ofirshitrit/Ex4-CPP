@@ -35,7 +35,16 @@ void Team::attackByFighterType(Character* fighter, Character* victim, Team* enem
 void Team::attackByCowboys(Team* enemies, Character* victim) {
     for (Character* fighter : this->getFighters()) {
         if (Cowboy* cowboy = dynamic_cast<Cowboy*>(fighter)) {
-            attackByFighterType(cowboy, victim,enemies);
+            if (cowboy->isAlive()) {
+                cowboy->attack(victim);
+                if (!victim->isAlive()) {
+                    if (enemies->stillAlive() == 0) {
+                        return;
+                    } else {
+                        victim = chooseVictim(enemies);
+                    }
+                }
+            }
         }
     }
 }
@@ -43,7 +52,16 @@ void Team::attackByCowboys(Team* enemies, Character* victim) {
 void Team::attackByNinjas(Team* enemies, Character* victim) {
     for (Character* fighter : this->getFighters()) {
         if (Ninja* ninja = dynamic_cast<Ninja*>(fighter)) {
-            attackByFighterType(ninja, victim,enemies);
+            if (ninja->isAlive()) {
+                ninja->attack(victim);
+                if (!victim->isAlive()) {
+                    if (enemies->stillAlive() == 0) {
+                        return;
+                    } else {
+                        victim = chooseVictim(enemies);
+                    }
+                }
+            }
         }
     }
 }
