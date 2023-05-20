@@ -16,7 +16,7 @@ namespace ariel {
         ~Point() = default;
         double distance(Point other) const;
         void print() const;
-        static Point moveTowards(Point& src , Point& dest, double distance) ; //TODO
+        static Point moveTowards(Point& src , Point& dest, double distance) ;
         double getXCoordinate() const;
         double getYCoordinate() const;
     };

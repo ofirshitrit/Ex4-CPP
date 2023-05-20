@@ -26,7 +26,7 @@ double Character::distance(Character* other) {
 }
 
 void Character::hit(int num) {
-    if ( num < 0) throw invalid_argument("the number cant be negative");
+    if ( num < 0) throw invalid_argument("The number of hits cant be negative");
     this->_hitPoints -= num;
 }
 

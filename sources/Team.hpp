@@ -20,7 +20,6 @@ namespace ariel {
     protected:
         Character* _leader;
         std::vector<Character*> fighters;
-        int fightersAlive;
     public:
         Team(Character* leader);
 
@@ -42,11 +41,11 @@ namespace ariel {
 
         Character *chooseVictim(Team *enemies);
 
-        void attackVictim(Character* fighter, Character *victim);
-
         Character* getMember(Team* team);
 
-        void addSorted(Character *character);
+        void attackByNinjas(Team* enemies, Character* victim);
+        void attackByCowboys(Team* enemies, Character* victim);
+
     };
 }
 

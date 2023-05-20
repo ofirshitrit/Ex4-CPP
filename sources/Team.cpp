@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include "Team.hpp"
+#include <cfloat>
 
 
 using namespace ariel;
@@ -16,43 +17,64 @@ Team::Team(Character *leader)  : _leader(leader) , fighters()
     }
     fighters.push_back(leader);
     leader->setBelongToTeam(true);
-    this->fightersAlive = 1;
+}
+
+
+void Team::attackByCowboys(Team* enemies, Character* victim) {
+    for (Character* fighter : this->getFighters()) {
+        if (Cowboy* cowboy = dynamic_cast<Cowboy*>(fighter)) {
+            if (cowboy->isAlive()) {
+                cowboy->attack(victim);
+                if (!victim->isAlive()) {
+                    if (enemies->stillAlive() == 0) {
+                        return;
+                    } else {
+                        victim = chooseVictim(enemies);
+                    }
+                }
+            }
+        }
+    }
+}
+
+void Team::attackByNinjas(Team* enemies, Character* victim) {
+    for (Character* fighter : this->getFighters()) {
+        if (Ninja* ninja = dynamic_cast<Ninja*>(fighter)) {
+            if (ninja->isAlive()) {
+                ninja->attack(victim);
+                if (!victim->isAlive()) {
+                    if (enemies->stillAlive() == 0) {
+                        return;
+                    } else {
+                        victim = chooseVictim(enemies);
+                    }
+                }
+            }
+        }
+    }
 }
 
 void Team::attack(Team* enemies) {
-    if (enemies == nullptr) throw invalid_argument("Can't attack nullptr");
-    if (enemies->stillAlive() == 0) throw runtime_error("Can't attack dead team!");
+    if (this->stillAlive() == 0) {
+        throw runtime_error("The team is dead!");
+    }
+    if (enemies == nullptr) {
+        throw invalid_argument("Can't attack nullptr");
+    }
+    if (enemies->stillAlive() == 0) {
+        throw runtime_error("Can't attack dead team!");
+    }
 
     if (!this->getLeader()->isAlive()) {
         this->_leader = getNewLeader();
     }
 
     Character* victim = chooseVictim(enemies);
-    cout << "The victim: " << victim->getName() << " with Hit points: " << victim->getHitPoints() << " location:"; //TODO -DELETE LINE
-    victim->getLocation().print(); //TODO -DELETE LINE
-    for (unsigned int i = 0; i < this->getFighters().size() && victim->isAlive(); i++) {
-        Character* fighter = this->getFighters()[i];
-        cout << "The fighter: " << fighter->getName() << " location:"; //TODO -DELETE LINE
-        fighter->getLocation().print(); //TODO -DELETE LINE
-        if (!victim->isAlive()) {
-            cout << victim->getName() << " is dead!" << endl; // TODO - DELETE
-            return;
-        }
-        if (fighter->isAlive()) {
-            attackVictim(fighter, victim);
-        }
-    }
+
+    attackByCowboys(enemies, victim);
+    attackByNinjas(enemies, victim);
 }
 
-
-
-void Team::attackVictim(Character *fighter, Character *victim) {
-    if (Cowboy *cowboy = dynamic_cast<Cowboy *>(fighter)) {
-        cowboy->attack(victim);
-    } else if (Ninja *ninja = dynamic_cast<Ninja *>(fighter)) {
-        ninja->attack(victim);
-    }
-}
 
 
 Character *Team::getNewLeader() {
@@ -69,7 +91,7 @@ Character *Team::chooseVictim(Team *enemies) {
 
 Character* Team::getMember(Team* team){
     Character* member = nullptr;
-    double minDistance = 100000000;
+    double minDistance = DBL_MAX;
     for( unsigned int i = 0; i < team->getFighters().size(); i++){
         if (team->getFighters()[i]->isAlive()){ //only if the fighter is alive it could be chosen
             double currDistance = team->getFighters()[i]->getLocation().distance(this->_leader->getLocation());
@@ -108,7 +130,8 @@ void Team::add( Character* character) {
         throw runtime_error("This character belong to another team");
     }
     character->setBelongToTeam(true);
-    addSorted(character);
+    this->getFighters().push_back(character);
+//    addSorted(character);
 }
 
 Character *Team::getLeader() const {
@@ -117,13 +140,6 @@ Character *Team::getLeader() const {
 
 std::vector<Character *> &Team::getFighters(){
     return fighters;
-}
-void Team::addSorted(Character *character) {
-    if (Cowboy *cowboy = dynamic_cast<Cowboy *>(character)) {
-        fighters.insert(fighters.begin(), character);  // Add cowboy at the beginning
-    } else if (Ninja* ninja = dynamic_cast<Ninja*>(character)) {
-        fighters.push_back(character);  // Add ninja at the end
-    }
 }
 
 Team::~Team() { //TODO

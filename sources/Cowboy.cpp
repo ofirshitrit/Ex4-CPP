@@ -15,7 +15,7 @@ string Cowboy::print() {
 }
 
 void Cowboy::shoot(Character *enemy) {
-    if (enemy == this) throw runtime_error("character cant heart itself");
+    if (this == enemy) throw runtime_error("character cant heart itself");
     if (!enemy->isAlive()) throw runtime_error("cant shoot a dead enemy");
     if (!this->isAlive()) throw runtime_error("dead cowboy cant shoot");
 
@@ -41,11 +41,12 @@ int Cowboy::getNumOfBalls() const {
 
 
 void Cowboy::attack(Character *victim) {
-    if (this->hasboolets()) {
-        this->shoot(victim);
-        cout << this->getName() << " shoot " << victim->getName() << " , boolets has left: " << getNumOfBalls() << endl; // TODO -DELETE
-    } else {
-        cout << this->getName() << " reload " << endl;
-        this->reload();
+
+    if(victim->isAlive()) {
+        if (this->hasboolets()) {
+            this->shoot(victim);
+        } else {
+            this->reload();
+        }
     }
 }
