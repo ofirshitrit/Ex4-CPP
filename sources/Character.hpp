@@ -39,6 +39,8 @@ namespace ariel {
 
         void setBelongToTeam(bool belongToTeam);
 
+        virtual void attack(Character* victim) = 0;
+
 
     };
 

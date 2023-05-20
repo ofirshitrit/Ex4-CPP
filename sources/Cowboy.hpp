@@ -26,7 +26,7 @@ namespace ariel {
 
         int getNumOfBalls() const;
 
-        void attack(Character* victim);
+        void attack(Character* victim) override;
 
     };
 }

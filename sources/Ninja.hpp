@@ -24,7 +24,7 @@ namespace ariel {
 
         int getSpeed() const;
 
-        void attack(Character* victim);
+        void attack(Character* victim) override;
 
     };
 }

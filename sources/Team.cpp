@@ -19,20 +19,23 @@ Team::Team(Character *leader)  : _leader(leader) , fighters()
     leader->setBelongToTeam(true);
 }
 
+void Team::attackByFighterType(Character* fighter, Character* victim, Team* enemies) {
+    if (fighter->isAlive()) {
+        fighter->attack(victim);
+        if (!victim->isAlive()) {
+            if (enemies->stillAlive() == 0) {
+                return;
+            } else {
+                victim = chooseVictim(enemies);
+            }
+        }
+    }
+}
 
 void Team::attackByCowboys(Team* enemies, Character* victim) {
     for (Character* fighter : this->getFighters()) {
         if (Cowboy* cowboy = dynamic_cast<Cowboy*>(fighter)) {
-            if (cowboy->isAlive()) {
-                cowboy->attack(victim);
-                if (!victim->isAlive()) {
-                    if (enemies->stillAlive() == 0) {
-                        return;
-                    } else {
-                        victim = chooseVictim(enemies);
-                    }
-                }
-            }
+            attackByFighterType(cowboy, victim,enemies);
         }
     }
 }
@@ -40,16 +43,7 @@ void Team::attackByCowboys(Team* enemies, Character* victim) {
 void Team::attackByNinjas(Team* enemies, Character* victim) {
     for (Character* fighter : this->getFighters()) {
         if (Ninja* ninja = dynamic_cast<Ninja*>(fighter)) {
-            if (ninja->isAlive()) {
-                ninja->attack(victim);
-                if (!victim->isAlive()) {
-                    if (enemies->stillAlive() == 0) {
-                        return;
-                    } else {
-                        victim = chooseVictim(enemies);
-                    }
-                }
-            }
+            attackByFighterType(ninja, victim,enemies);
         }
     }
 }
@@ -74,8 +68,6 @@ void Team::attack(Team* enemies) {
     attackByCowboys(enemies, victim);
     attackByNinjas(enemies, victim);
 }
-
-
 
 Character *Team::getNewLeader() {
     Character* newLeader = getMember(this);
