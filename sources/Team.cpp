@@ -12,7 +12,6 @@ using namespace std;
 Team::Team(Character *leader)  : _leader(leader) , fighters()
 {
     if (leader->isBelongToTeam()) {
-        this->fighters.pop_back(); //remove the leader
         throw runtime_error("This captain belong to another team");
     }
     fighters.push_back(leader);
@@ -21,21 +20,30 @@ Team::Team(Character *leader)  : _leader(leader) , fighters()
 }
 
 void Team::attack(Team* enemies) {
-    if (enemies == nullptr) throw invalid_argument("Cant attack nullptr");
-    if (enemies->stillAlive() == 0) throw runtime_error("Cant attack dead team!");
+    if (enemies == nullptr) throw invalid_argument("Can't attack nullptr");
+    if (enemies->stillAlive() == 0) throw runtime_error("Can't attack dead team!");
 
     if (!this->getLeader()->isAlive()) {
         this->_leader = getNewLeader();
     }
 
     Character* victim = chooseVictim(enemies);
-    for (unsigned int i = 0; i < this->getFighters().size(); i++) {
-        Character *fighter = this->getFighters()[i];
-        if (victim->isAlive() && fighter->isAlive()) {
+    cout << "The victim: " << victim->getName() << " with Hit points: " << victim->getHitPoints() << " location:"; //TODO -DELETE LINE
+    victim->getLocation().print(); //TODO -DELETE LINE
+    for (unsigned int i = 0; i < this->getFighters().size() && victim->isAlive(); i++) {
+        Character* fighter = this->getFighters()[i];
+        cout << "The fighter: " << fighter->getName() << " location:"; //TODO -DELETE LINE
+        fighter->getLocation().print(); //TODO -DELETE LINE
+        if (!victim->isAlive()) {
+            cout << victim->getName() << " is dead!" << endl; // TODO - DELETE
+            return;
+        }
+        if (fighter->isAlive()) {
             attackVictim(fighter, victim);
         }
     }
 }
+
 
 
 void Team::attackVictim(Character *fighter, Character *victim) {
@@ -48,18 +56,18 @@ void Team::attackVictim(Character *fighter, Character *victim) {
 
 
 Character *Team::getNewLeader() {
-    Character* newLeader = pickMember(this);
+    Character* newLeader = getMember(this);
     return newLeader;
 }
 
 
 Character *Team::chooseVictim(Team *enemies) {
     if (enemies == this) throw runtime_error("Team cant choose a victim from itself ");
-    Character* victim = pickMember(enemies);
+    Character* victim = getMember(enemies);
     return victim;
 }
 
-Character* Team::pickMember(Team* team){
+Character* Team::getMember(Team* team){
     Character* member = nullptr;
     double minDistance = 100000000;
     for( unsigned int i = 0; i < team->getFighters().size(); i++){
@@ -118,8 +126,8 @@ void Team::addSorted(Character *character) {
     }
 }
 
-Team::~Team() {
-    for (Character* fighter : fighters) {
-        delete fighter;
-    }
+Team::~Team() { //TODO
+//    for (Character* fighter : fighters) {
+//        delete fighter;
+//    }
 }

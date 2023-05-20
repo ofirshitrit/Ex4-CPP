@@ -43,7 +43,9 @@ int Cowboy::getNumOfBalls() const {
 void Cowboy::attack(Character *victim) {
     if (this->hasboolets()) {
         this->shoot(victim);
+        cout << this->getName() << " shoot " << victim->getName() << " , boolets has left: " << getNumOfBalls() << endl; // TODO -DELETE
     } else {
+        cout << this->getName() << " reload " << endl;
         this->reload();
     }
 }

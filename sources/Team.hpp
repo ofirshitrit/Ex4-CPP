@@ -44,7 +44,7 @@ namespace ariel {
 
         void attackVictim(Character* fighter, Character *victim);
 
-        Character* pickMember(Team* team);
+        Character* getMember(Team* team);
 
         void addSorted(Character *character);
     };
