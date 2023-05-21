@@ -6,7 +6,6 @@
  */
 
 #include <iostream>
-#include <random>
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
@@ -14,56 +13,41 @@
 using namespace std;
 
 #include "sources/Team.hpp" //no need for other includes
-#include "sources/SmartTeam.hpp"
-
 
 using namespace ariel;
 
 
 int main() {
+    Point a(32.3,44),b(1.3,3.5);
+    assert(a.distance(b) == b.distance(a));
+    Cowboy *tom = new Cowboy("Tom", a);
+    OldNinja *sushi = new OldNinja("sushi", b);
+    tom->shoot(sushi);
+    cout << tom->print() <<endl;
+
+    sushi->move(tom);
+    sushi->slash(tom);
+
+    Team team_A(tom);
+    team_A.add(new YoungNinja("Yogi", Point(64,57)));
+
+    // Team b(tom); should throw tom is already in team a
+
+    Team team_B(sushi);
+    team_B.add(new TrainedNinja("Hikari", Point(12,81)));
 
 
-    Cowboy* c = new Cowboy("c", Point{-1,-1});
-    Cowboy* cow = new Cowboy("cy", Point{2,2});
-    YoungNinja* youngNinja = new YoungNinja("yn" , Point(0,0));
-    OldNinja* oldNinja = new OldNinja("on" , Point(-0.5,-0.5));
-    TrainedNinja* trainedNinja = new TrainedNinja("tn" , Point(0.5,0.5));
+    while(team_A.stillAlive() > 0 && team_B.stillAlive() > 0){
+        team_A.attack(&team_B);
+        team_B.attack(&team_A);
+        cout << "A:" << endl;
+        team_A.print();
+        cout << "B: " << endl;
+        team_B.print();
+    }
 
-    Team team1(c);
-    team1.add(cow);
-    team1.add(youngNinja);
-    team1.add(oldNinja);
-    team1.add(trainedNinja);
-
-    Cowboy* cowboy1 = new Cowboy("c1", Point{-6,-6});
-    Cowboy* cowboy2 = new Cowboy("c2", Point{-7,-7});
-    Cowboy* cowboy3 = new Cowboy("c3", Point{-8,-8});
-    YoungNinja* youngNinjaa = new YoungNinja("ynn" , Point(0,0));
-    YoungNinja* youngNinja2 = new YoungNinja("yn2" , Point(3,3));
-    OldNinja* oldNinjaa = new OldNinja("onn" , Point(2,2));
-    TrainedNinja* trainedNinjaa = new TrainedNinja("tnn" , Point(1,1));
-
-    SmartTeam team(cowboy1);
-    team.add(cowboy2);
-    team.add(cowboy3);
-    team.add(youngNinjaa);
-    team.add(youngNinja2);
-    team.add(oldNinjaa);
-    team.add(trainedNinjaa);
-
-//    team.print();
-
-//    for ( int i =1; i<=30; i++) {
-//        cout << "*** The " << i << " attack!! *** " << endl;
-//        team.attack(&team1);
-//        if (team1.stillAlive() > 0 ) {
-//            cout << "The team is alive!" << endl;
-//        } else {
-//            cout << "The team is dead!" << endl;
-//            break;
-//        }
-//        cout << endl;
-//    }
+    if (team_A.stillAlive() > 0) cout << "winner is team_A" << endl;
+    else cout << "winner is team_B" << endl;
 
     return 0; // no memory issues. Team should free the memory of its members. both a and b teams are on the stack.
 
