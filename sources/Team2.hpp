@@ -18,6 +18,7 @@ namespace ariel {
         void print() override;
 
         void add(Character* character) override;
+        void attack(Team* enemies) override;
 
     };
 

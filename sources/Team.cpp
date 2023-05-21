@@ -127,9 +127,15 @@ int Team::stillAlive() {
 }
 
 void Team::print() {
-    for(unsigned int i = 0; i < this->fighters.size(); i++)
-    {
-        cout << this->fighters[i]->print() << endl;
+    for (Character* fighter : this->getFighters()) {
+        if (Cowboy* cowboy = dynamic_cast<Cowboy*>(fighter)){
+            cowboy->print();
+        }
+    }
+    for (Character* fighter : this->getFighters()) {
+        if (Ninja* ninja = dynamic_cast<Ninja*>(fighter)){
+            ninja->print();
+        }
     }
 }
 

@@ -29,7 +29,7 @@ namespace ariel {
 
         virtual void add(Character* character);
 
-        void attack(Team *enemies);
+        virtual void attack(Team *enemies);
 
         virtual void print();
 
@@ -39,7 +39,7 @@ namespace ariel {
 
         Character *getNewLeader();
 
-        Character *chooseVictim(Team *enemies);
+        virtual Character *chooseVictim(Team *enemies);
 
         Character* getMember(Team* team);
 
