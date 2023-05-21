@@ -36,11 +36,18 @@ int Ninja::getSpeed() const {
 
 void Ninja::attack(Character *victim) {
     double distance = this->getLocation().distance(victim->getLocation()); //the distance less than one meter
-    if ( victim->isAlive()) {
+    if (victim->isAlive()) {
         if ((distance < 1) && this->isAlive() ) {
+//            cout << this->getName() << " slash " << victim->getName() << endl; //TODO
             this->slash(victim);
         } else {
+//            Point location = this->getLocation(); // todo
             this->move(victim);
+//            cout << this->getName() << " move from ";
+//            location.print();
+//            cout << "to: ";
+//            this->getLocation().print();
+
         }
     }
 }

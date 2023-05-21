@@ -4,8 +4,6 @@
 
 #include "SmartTeam.hpp"
 #include "Team.hpp"
-#include <unordered_map>
-#include <algorithm>
 #include <cfloat>
 
 
@@ -35,7 +33,7 @@ void SmartTeam::print() {
   * This function works on this method:
   * The victim is choosen such that he will be the closest enemy to one of the ninjas.
   * Ninjas attack first because they can hit the most at the enemy's hit points.
-  * Then the cowboys attack
+  * Then the cowboys attack.
   * @param enemies
   */
 
@@ -55,8 +53,16 @@ void SmartTeam::attack(Team* enemies) {
     }
 
     Character* victim = chooseVictim(enemies);
-    attackByCowboys(enemies, victim);
-    attackByNinjas(enemies, victim);
+    cout << "victim is: " << victim->getName() << endl;
+    if (victim->isAlive()) {
+        attackByNinjas(enemies, victim);
+//        if ( !victim->isAlive()) cout << victim->getName() << " is dead!" << endl;
+    }
+
+    if (victim->isAlive()) {
+        attackByCowboys(enemies, victim);
+//        if ( !victim->isAlive()) cout << victim->getName() << " is dead!" << endl;
+    }
 
 }
 
@@ -67,11 +73,9 @@ Character* SmartTeam::chooseVictim(Team *enemies) {
 
 Character* SmartTeam::getClosestToNinjas(Team *enemies) {
 
-    int indexOfClosestEnemy = getIndexOfClosestEnemy(enemies);
-    cout << "indexOfClosestEnemy: " << indexOfClosestEnemy << endl; //TODO
+    unsigned int indexOfClosestEnemy = getIndexOfClosestEnemy(enemies);
 
     Character* enemy =  enemies->getFighters()[indexOfClosestEnemy];
-    cout << enemy->print() << endl;
     return enemy;
 }
 
@@ -79,9 +83,9 @@ const vector<Character*> &SmartTeam::getNinjas() const {
     return ninjas;
 }
 
-int SmartTeam::getIndexOfClosestEnemy(Team *enemies) {
+unsigned int SmartTeam::getIndexOfClosestEnemy(Team *enemies) {
     double minDistance = DBL_MAX;
-    int index = 0;
+    unsigned int index = 0;
     for (Character* fighter : this->getFighters()) {
         if ( OldNinja* oldninja = dynamic_cast<OldNinja*>(fighter)) {
             getDistanceAndIndex(oldninja,enemies,&minDistance,&index);
@@ -94,14 +98,16 @@ int SmartTeam::getIndexOfClosestEnemy(Team *enemies) {
     return index;
 }
 
-void SmartTeam::getDistanceAndIndex(Ninja* fighter, Team* enemies, double* minDistance, int* index)
+void SmartTeam::getDistanceAndIndex(Ninja* fighter, Team* enemies, double* minDistance, unsigned int* index)
 {
     for (unsigned int i = 0; i < enemies->getFighters().size(); i++ ){
         Character* enemy = enemies->getFighters()[i];
-        double currDistance = fighter->getLocation().distance(enemy->getLocation());
-        if (currDistance < *minDistance) {
-            *minDistance = currDistance;
-            *index = i;
+        if (enemy->isAlive()) {
+            double currDistance = fighter->getLocation().distance(enemy->getLocation());
+            if (currDistance < *minDistance) {
+                *minDistance = currDistance;
+                *index = i;
+            }
         }
     }
 }

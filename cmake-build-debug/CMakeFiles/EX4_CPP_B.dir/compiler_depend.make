@@ -1943,11 +1943,6 @@ CMakeFiles/EX4_CPP_B.dir/sources/SmartTeam.cpp.o: /home/ofr/CLionProjects/Ex4-CP
   /home/ofr/CLionProjects/Ex4-CPP-B/sources/TrainedNinja.hpp \
   /home/ofr/CLionProjects/Ex4-CPP-B/sources/YoungNinja.hpp \
   /home/ofr/CLionProjects/Ex4-CPP-B/sources/Cowboy.hpp \
-  /usr/include/c++/11/algorithm \
-  /usr/include/c++/11/bits/stl_algo.h \
-  /usr/include/c++/11/bits/algorithmfwd.h \
-  /usr/include/c++/11/bits/stl_heap.h \
-  /usr/include/c++/11/bits/uniform_int_dist.h \
   /usr/include/c++/11/cfloat \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/float.h
 

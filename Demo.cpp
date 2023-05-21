@@ -53,7 +53,17 @@ int main() {
 
 //    team.print();
 
-   team.getClosestToNinjas(&team1);
+//    for ( int i =1; i<=30; i++) {
+//        cout << "*** The " << i << " attack!! *** " << endl;
+//        team.attack(&team1);
+//        if (team1.stillAlive() > 0 ) {
+//            cout << "The team is alive!" << endl;
+//        } else {
+//            cout << "The team is dead!" << endl;
+//            break;
+//        }
+//        cout << endl;
+//    }
 
     return 0; // no memory issues. Team should free the memory of its members. both a and b teams are on the stack.
 
