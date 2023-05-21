@@ -6,11 +6,14 @@
 #define EX4_CPP_YOUNGNINJA_HPP
 #include <iostream>
 #include "Ninja.hpp"
+#define YN_HIT_POINTS 100
+#define YN_SPEED 14
+
 
 namespace ariel {
     class YoungNinja : public Ninja{
     public:
-        YoungNinja(std::string name ,Point p) : Ninja(100, name, p, 14){}
+        YoungNinja(std::string name ,Point location) : Ninja(YN_HIT_POINTS, name, location, YN_SPEED){}
         ~YoungNinja() override = default;
 
     };

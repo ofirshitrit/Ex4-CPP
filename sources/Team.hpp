@@ -17,7 +17,7 @@
 namespace ariel {
 
     class Team {
-    protected:
+    private:
         Character* _leader;
         std::vector<Character*> fighters;
     public:
@@ -35,6 +35,8 @@ namespace ariel {
 
         Character *getLeader() const;
 
+        void setLeader(Character *leader);
+
         std::vector<Character *> &getFighters();
 
         Character *getNewLeader();
@@ -44,8 +46,8 @@ namespace ariel {
         Character* getMember(Team* team);
 
         void attackByNinjas(Team* enemies, Character* victim);
+
         void attackByCowboys(Team* enemies, Character* victim);
-        void attackByFighterType(Character* fighter, Character* victim, Team* enemies);
 
     };
 }

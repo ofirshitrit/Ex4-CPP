@@ -11,7 +11,7 @@
 
 namespace ariel {
     class Character {
-    protected:
+    private:
         Point _location;
         int _hitPoints;
         std::string _name;
@@ -21,7 +21,7 @@ namespace ariel {
 
         virtual ~Character()  = default;
 
-        bool isAlive();
+        bool isAlive() const;
 
         double distance(Character* other);
 

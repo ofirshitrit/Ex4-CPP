@@ -6,12 +6,14 @@
 #define EX4_CPP_OLDNINJA_HPP
 
 #include "Ninja.hpp"
+#define ON_HIT_POINTS 150
+#define ON_SPEED 8
 
 
 namespace ariel {
     class OldNinja : public Ninja {
     public:
-        OldNinja(std::string name, Point p) : Ninja(150, name, p, 8) {}
+        OldNinja(std::string name, Point location) : Ninja(ON_HIT_POINTS, name, location, ON_SPEED) {}
 
         ~OldNinja() override = default;
 

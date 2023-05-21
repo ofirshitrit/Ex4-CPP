@@ -20,7 +20,7 @@ void Team2::attack(Team* enemies) {
     }
 
     if (!this->getLeader()->isAlive()) {
-        this->_leader = getNewLeader();
+        setLeader(getNewLeader());
     }
 
     Character* victim = chooseVictim(enemies);
@@ -52,7 +52,7 @@ void Team2::print() {
 }
 
 void Team2::add(Character *character) {
-    if (this->fighters.size() == 10) throw runtime_error("The team cant be over 10 fighters");
+    if (this->getFighters().size() == 10) throw runtime_error("The team cant be over 10 fighters");
     if (character->isBelongToTeam()) {
         throw runtime_error("This character belong to another team");
     }

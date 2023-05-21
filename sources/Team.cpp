@@ -20,18 +20,7 @@ Team::Team(Character *leader)  : _leader(leader) , fighters()
     leader->setBelongToTeam(true);
 }
 
-void Team::attackByFighterType(Character* fighter, Character* victim, Team* enemies) {
-    if (fighter->isAlive()) {
-        fighter->attack(victim);
-        if (!victim->isAlive()) {
-            if (enemies->stillAlive() == 0) {
-                return;
-            } else {
-                victim = chooseVictim(enemies);
-            }
-        }
-    }
-}
+
 
 void Team::attackByCowboys(Team* enemies, Character* victim) {
     for (Character* fighter : this->getFighters()) {
@@ -140,16 +129,15 @@ void Team::print() {
     }
 }
 
-void Team::add( Character* character) {
+void Team::add(Character* character) {
     if (this->fighters.size() == 10) throw runtime_error("The team cant be over 10 fighters");
     if (character->isBelongToTeam()) {
-        this->fighters.pop_back(); //remove the character
         throw runtime_error("This character belong to another team");
     }
     character->setBelongToTeam(true);
     this->getFighters().push_back(character);
-//    addSorted(character);
 }
+
 
 Character *Team::getLeader() const {
     return _leader;
@@ -159,8 +147,12 @@ std::vector<Character *> &Team::getFighters(){
     return fighters;
 }
 
-Team::~Team() { //TODO
-//    for (Character* fighter : fighters) {
-//        delete fighter;
-//    }
+Team::~Team() {
+    for (Character* fighter : fighters) {
+        delete fighter;
+    }
+}
+
+void Team::setLeader(Character *leader) {
+    _leader = leader;
 }

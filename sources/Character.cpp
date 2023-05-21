@@ -17,7 +17,7 @@ Point& Character::getLocation() {
     return this->_location;
 }
 
-bool Character::isAlive() {
+bool Character::isAlive() const {
     return (_hitPoints > 0);
 }
 

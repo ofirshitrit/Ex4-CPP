@@ -16,10 +16,8 @@
 namespace ariel {
 
     class SmartTeam : public Team {
-    private:
-        std::vector<Character *> ninjas;
     public:
-        SmartTeam(Character *leader) : Team(leader), ninjas() {}
+        SmartTeam(Character *leader) : Team(leader){}
 
         ~SmartTeam() = default;
 
@@ -32,8 +30,6 @@ namespace ariel {
         Character *chooseVictim(Team *enemies) override;
 
         Character *getClosestToNinjas(Team *enemies);
-
-        const std::vector<Character *> &getNinjas() const;
 
         unsigned int getIndexOfClosestEnemy(Team *enemies);
 

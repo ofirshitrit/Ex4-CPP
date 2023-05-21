@@ -13,15 +13,12 @@ using namespace std;
 
 
 void SmartTeam::add(Character *character) {
-    if (this->fighters.size() == 10) throw runtime_error("The team cant be over 10 fighters");
+    if (this->getFighters().size() == 10) throw runtime_error("The team cant be over 10 fighters");
     if (character->isBelongToTeam()) {
         throw runtime_error("This character belong to another team");
     }
     character->setBelongToTeam(true);
     this->getFighters().push_back(character);
-    if (Ninja* ninja = dynamic_cast<Ninja*>(character)) {
-        this->ninjas.push_back(ninja);
-    }
 }
 
 void SmartTeam::print() {
@@ -30,10 +27,9 @@ void SmartTeam::print() {
     }
 }
  /**
-  * This function works on this method:
-  * The victim is choosen such that he will be the closest enemy to one of the ninjas.
-  * Ninjas attack first because they can hit the most at the enemy's hit points.
-  * Then the cowboys attack.
+  * The idea:
+  * The victim is choosen such that he will be closest to the ninjas,
+  * because Ninjas are hit the most in the enemy's hit points.
   * @param enemies
   */
 
@@ -49,19 +45,17 @@ void SmartTeam::attack(Team* enemies) {
     }
 
     if (!this->getLeader()->isAlive()) {
-        this->_leader = getNewLeader();
+        setLeader(getNewLeader());
     }
 
     Character* victim = chooseVictim(enemies);
     cout << "victim is: " << victim->getName() << endl;
     if (victim->isAlive()) {
         attackByNinjas(enemies, victim);
-//        if ( !victim->isAlive()) cout << victim->getName() << " is dead!" << endl;
     }
 
     if (victim->isAlive()) {
         attackByCowboys(enemies, victim);
-//        if ( !victim->isAlive()) cout << victim->getName() << " is dead!" << endl;
     }
 
 }
@@ -79,9 +73,6 @@ Character* SmartTeam::getClosestToNinjas(Team *enemies) {
     return enemy;
 }
 
-const vector<Character*> &SmartTeam::getNinjas() const {
-    return ninjas;
-}
 
 unsigned int SmartTeam::getIndexOfClosestEnemy(Team *enemies) {
     double minDistance = DBL_MAX;
