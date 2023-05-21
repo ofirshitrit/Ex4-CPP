@@ -54,7 +54,6 @@ void Team2::print() {
 void Team2::add(Character *character) {
     if (this->fighters.size() == 10) throw runtime_error("The team cant be over 10 fighters");
     if (character->isBelongToTeam()) {
-        this->fighters.pop_back(); //remove the character
         throw runtime_error("This character belong to another team");
     }
     character->setBelongToTeam(true);

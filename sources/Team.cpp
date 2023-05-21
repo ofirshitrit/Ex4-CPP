@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include "Team.hpp"
+
 #include <cfloat>
 
 
@@ -129,12 +130,12 @@ int Team::stillAlive() {
 void Team::print() {
     for (Character* fighter : this->getFighters()) {
         if (Cowboy* cowboy = dynamic_cast<Cowboy*>(fighter)){
-            cowboy->print();
+            cout << cowboy->print() << endl;
         }
     }
     for (Character* fighter : this->getFighters()) {
         if (Ninja* ninja = dynamic_cast<Ninja*>(fighter)){
-            ninja->print();
+            cout << ninja->print() << endl;
         }
     }
 }

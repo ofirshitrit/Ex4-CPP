@@ -192,4 +192,11 @@ CMakeFiles/EX4_CPP_B.dir/Demo.cpp.o: \
  /home/ofr/CLionProjects/Ex4-CPP-B/sources/Point.hpp \
  /home/ofr/CLionProjects/Ex4-CPP-B/sources/TrainedNinja.hpp \
  /home/ofr/CLionProjects/Ex4-CPP-B/sources/YoungNinja.hpp \
- /home/ofr/CLionProjects/Ex4-CPP-B/sources/Cowboy.hpp
+ /home/ofr/CLionProjects/Ex4-CPP-B/sources/Cowboy.hpp \
+ /home/ofr/CLionProjects/Ex4-CPP-B/sources/SmartTeam.hpp \
+ /usr/include/c++/11/unordered_map /usr/include/c++/11/bits/hashtable.h \
+ /usr/include/c++/11/bits/hashtable_policy.h \
+ /usr/include/c++/11/bits/enable_special_members.h \
+ /usr/include/c++/11/bits/unordered_map.h \
+ /usr/include/c++/11/bits/erase_if.h \
+ /home/ofr/CLionProjects/Ex4-CPP-B/sources/Team.hpp

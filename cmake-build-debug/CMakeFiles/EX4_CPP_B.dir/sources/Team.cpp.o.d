@@ -172,4 +172,6 @@ CMakeFiles/EX4_CPP_B.dir/sources/Team.cpp.o: \
  /home/ofr/CLionProjects/Ex4-CPP-B/sources/Point.hpp \
  /home/ofr/CLionProjects/Ex4-CPP-B/sources/TrainedNinja.hpp \
  /home/ofr/CLionProjects/Ex4-CPP-B/sources/YoungNinja.hpp \
- /home/ofr/CLionProjects/Ex4-CPP-B/sources/Cowboy.hpp
+ /home/ofr/CLionProjects/Ex4-CPP-B/sources/Cowboy.hpp \
+ /usr/include/c++/11/cfloat \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/float.h

@@ -35,14 +35,10 @@ namespace ariel {
 
         const std::vector<Character *> &getNinjas() const;
 
-        void fillTheMap(std::unordered_map<double, int> distanceFromEnemies, std::vector<double> distanceFromOldNinja,
-                        std::vector<double> distanceFromYoungNinja, std::vector<double> distanceFromTrainedNinja);
 
-        double getSmallestDistance(double &d, double &d1, double &d2);
+        int getIndexOfClosestEnemy(Team *enemies);
 
-        std::vector<double> getDistanceFromNinja(Team *enemies);
-
-        void fromOldNinja(Ninja* fighter,Team* enemies, double* minDistance,int* index);
+        void getDistanceAndIndex(Ninja* fighter, Team* enemies, double* minDistance, int* index);
     };
 }
 
