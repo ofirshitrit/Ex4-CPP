@@ -14,9 +14,6 @@ namespace ariel {
     public:
         OldNinja(std::string name, Point location) : Ninja(ON_HIT_POINTS, name, location, ON_SPEED) {}
 
-//        ~OldNinja() override = default;
-
-
     };
 }
 

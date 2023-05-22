@@ -15,7 +15,6 @@ namespace ariel {
     class YoungNinja : public Ninja{
     public:
         YoungNinja(std::string name ,Point location) : Ninja(YN_HIT_POINTS, name, location, YN_SPEED){}
-//        ~YoungNinja() override = default;
 
     };
 }
