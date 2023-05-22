@@ -14,7 +14,7 @@ namespace ariel {
     class TrainedNinja : public Ninja {
 
     public:
-        TrainedNinja(std::string &name, Point location) : Ninja(TN_HIT_POINTS, name, location, TN_SPEED) {}
+        TrainedNinja(std::string name, Point location) : Ninja(TN_HIT_POINTS, name, location, TN_SPEED) {}
 
 //        ~TrainedNinja() override = default;
 
