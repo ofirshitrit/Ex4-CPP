@@ -23,7 +23,7 @@ namespace ariel {
     public:
         Team(Character* leader);
 
-        ~Team();
+       virtual ~Team();
 
         int stillAlive();
 
@@ -48,6 +48,12 @@ namespace ariel {
         void attackByNinjas(Team* enemies, Character* victim);
 
         void attackByCowboys(Team* enemies, Character* victim);
+
+        //for tidy
+        Team(const Team &) = delete;
+        Team &operator=(const Team &) = delete;
+        Team(Team &&) = delete;
+        Team &operator=(Team &&) = delete;
 
     };
 }

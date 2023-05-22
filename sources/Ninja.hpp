@@ -9,12 +9,12 @@
 
 namespace ariel {
     class Ninja : public Character {
-    protected:
+    private:
         int _speed;
     public:
-        Ninja(int hp, std::string name, Point &loc, int spd) : Character(hp, name, loc), _speed(spd) {}
+        Ninja(int hitPoints, std::string name, Point &loc, int spd) : Character(hitPoints, name, loc), _speed(spd) {}
 
-        virtual ~Ninja() override = default;
+        ~Ninja() override = default;
 
         std::string print() override;
 
@@ -25,6 +25,12 @@ namespace ariel {
         int getSpeed() const;
 
         void attack(Character* victim) override;
+
+        //for tidy
+        Ninja(const Ninja &) = delete;
+        Ninja &operator=(const Ninja &) = delete;
+        Ninja(Ninja &&) = delete;
+        Ninja &operator=(Ninja &&) = delete;
 
     };
 }

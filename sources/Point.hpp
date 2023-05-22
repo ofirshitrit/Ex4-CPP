@@ -12,8 +12,7 @@ namespace ariel {
         double x_coordinate;
         double y_coordinate;
     public:
-        Point(double x , double y) : x_coordinate(x) , y_coordinate(y){}
-        ~Point() = default;
+        Point(double x_coor , double y_coor) : x_coordinate(x_coor) , y_coordinate(y_coor){}
         double distance(Point other) const;
         void print() const;
         static Point moveTowards(Point& src , Point& dest, double distance) ;

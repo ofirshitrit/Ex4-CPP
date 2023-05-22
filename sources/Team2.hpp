@@ -13,8 +13,6 @@ namespace ariel {
     public:
         Team2(Character *leader) : Team(leader) {}
 
-        ~Team2() = default;
-
         void print() override;
 
         void add(Character* character) override;

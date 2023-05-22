@@ -17,7 +17,7 @@ namespace ariel {
         std::string _name;
         bool belongToTeam = false;
     public:
-        Character(int hitPoints, std::string name, Point location) : _hitPoints(hitPoints), _name(name), _location(location) {}
+        Character(int hitPoints, std::string &name, Point location) : _hitPoints(hitPoints), _name(name), _location(location) {}
 
         virtual ~Character()  = default;
 
@@ -41,6 +41,11 @@ namespace ariel {
 
         virtual void attack(Character* victim) = 0;
 
+        // for tidy
+        Character(const Character &) = delete;
+        Character &operator=(const Character &) = delete;
+        Character(Character &&) = delete;
+        Character &operator=(Character &&) = delete;
 
     };
 

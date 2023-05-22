@@ -7,17 +7,16 @@
 
 #include <iostream>
 #include "Ninja.hpp"
-#define TN_HIT_POINTS 120
-#define TN_SPEED 12
-
+constexpr int TN_HIT_POINTS = 120;
+constexpr int TN_SPEED = 12;
 
 namespace ariel {
     class TrainedNinja : public Ninja {
 
     public:
-        TrainedNinja(std::string name, Point location) : Ninja(TN_HIT_POINTS, name, location, TN_SPEED) {}
+        TrainedNinja(std::string &name, Point location) : Ninja(TN_HIT_POINTS, name, location, TN_SPEED) {}
 
-        ~TrainedNinja() override = default;
+//        ~TrainedNinja() override = default;
 
 
     };

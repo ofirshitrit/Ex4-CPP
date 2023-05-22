@@ -49,7 +49,6 @@ void SmartTeam::attack(Team* enemies) {
     }
 
     Character* victim = chooseVictim(enemies);
-    cout << "victim is: " << victim->getName() << endl;
     if (victim->isAlive()) {
         attackByNinjas(enemies, victim);
     }

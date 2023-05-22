@@ -19,7 +19,7 @@ namespace ariel {
     public:
         SmartTeam(Character *leader) : Team(leader){}
 
-        ~SmartTeam() = default;
+//        ~SmartTeam() = default;
 
         void add(Character *character) override;
 
@@ -33,7 +33,7 @@ namespace ariel {
 
         unsigned int getIndexOfClosestEnemy(Team *enemies);
 
-        void getDistanceAndIndex(Ninja* fighter, Team* enemies, double* minDistance, unsigned int* index);
+        static void getDistanceAndIndex(Ninja* fighter, Team* enemies, double* minDistance, unsigned int* index);
     };
 }
 
