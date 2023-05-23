@@ -35,7 +35,13 @@ int Character::getHitPoints() const {
 }
 
 string Character::print() {
-    string s = "name: " + _name + "\n";
+    string s;
+    if (this->getHitPoints() <= 0) {
+        s += "(name: " + _name + ")" + "\n";
+        s += "location: (" + to_string(_location.getXCoordinate()) + ", " + to_string(_location.getYCoordinate()) + ")\n";
+        return s;
+    }
+    s = "name: " + _name + "\n";
     s += "hit points: " + to_string(_hitPoints) + "\n";
     s += "location: (" + to_string(_location.getXCoordinate()) + ", " + to_string(_location.getYCoordinate()) + ")\n";
     return s;

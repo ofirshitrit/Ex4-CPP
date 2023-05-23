@@ -153,6 +153,30 @@ Demo.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/EX4_CPP_B.dir/build.make CMakeFiles/EX4_CPP_B.dir/Demo.cpp.s
 .PHONY : Demo.cpp.s
 
+MyDemo.o: MyDemo.cpp.o
+.PHONY : MyDemo.o
+
+# target to build an object file
+MyDemo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EX4_CPP_B.dir/build.make CMakeFiles/EX4_CPP_B.dir/MyDemo.cpp.o
+.PHONY : MyDemo.cpp.o
+
+MyDemo.i: MyDemo.cpp.i
+.PHONY : MyDemo.i
+
+# target to preprocess a source file
+MyDemo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EX4_CPP_B.dir/build.make CMakeFiles/EX4_CPP_B.dir/MyDemo.cpp.i
+.PHONY : MyDemo.cpp.i
+
+MyDemo.s: MyDemo.cpp.s
+.PHONY : MyDemo.s
+
+# target to generate assembly for a file
+MyDemo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EX4_CPP_B.dir/build.make CMakeFiles/EX4_CPP_B.dir/MyDemo.cpp.s
+.PHONY : MyDemo.cpp.s
+
 StudentTest1.o: StudentTest1.cpp.o
 .PHONY : StudentTest1.o
 
@@ -453,6 +477,9 @@ help:
 	@echo "... Demo.o"
 	@echo "... Demo.i"
 	@echo "... Demo.s"
+	@echo "... MyDemo.o"
+	@echo "... MyDemo.i"
+	@echo "... MyDemo.s"
 	@echo "... StudentTest1.o"
 	@echo "... StudentTest1.i"
 	@echo "... StudentTest1.s"

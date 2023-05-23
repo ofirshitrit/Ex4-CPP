@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ofr/CLionProjects/Ex4-CPP-B/Demo.cpp" "CMakeFiles/EX4_CPP_B.dir/Demo.cpp.o" "gcc" "CMakeFiles/EX4_CPP_B.dir/Demo.cpp.o.d"
+  "/home/ofr/CLionProjects/Ex4-CPP-B/MyDemo.cpp" "CMakeFiles/EX4_CPP_B.dir/MyDemo.cpp.o" "gcc" "CMakeFiles/EX4_CPP_B.dir/MyDemo.cpp.o.d"
   "/home/ofr/CLionProjects/Ex4-CPP-B/StudentTest1.cpp" "CMakeFiles/EX4_CPP_B.dir/StudentTest1.cpp.o" "gcc" "CMakeFiles/EX4_CPP_B.dir/StudentTest1.cpp.o.d"
   "/home/ofr/CLionProjects/Ex4-CPP-B/TestRunner.cpp" "CMakeFiles/EX4_CPP_B.dir/TestRunner.cpp.o" "gcc" "CMakeFiles/EX4_CPP_B.dir/TestRunner.cpp.o.d"
   "/home/ofr/CLionProjects/Ex4-CPP-B/sources/Character.cpp" "CMakeFiles/EX4_CPP_B.dir/sources/Character.cpp.o" "gcc" "CMakeFiles/EX4_CPP_B.dir/sources/Character.cpp.o.d"

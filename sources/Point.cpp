@@ -29,7 +29,6 @@ Point Point::moveTowards(Point &src, Point &dest, double distance) {
     if (dist <= distance) {
         return dest;
     }
-
     // Otherwise, we need to find the point on the line between the source and destination points
     // that is at most the maximum distance away from the source point
     double ratio = distance / dist;

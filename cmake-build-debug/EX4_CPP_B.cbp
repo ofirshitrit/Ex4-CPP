@@ -85,6 +85,9 @@
 		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/Demo.cpp">
 			<Option target="EX4_CPP_B"/>
 		</Unit>
+		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/MyDemo.cpp">
+			<Option target="EX4_CPP_B"/>
+		</Unit>
 		<Unit filename="/home/ofr/CLionProjects/Ex4-CPP-B/StudentTest1.cpp">
 			<Option target="EX4_CPP_B"/>
 		</Unit>
