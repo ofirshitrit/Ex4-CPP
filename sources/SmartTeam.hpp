@@ -19,10 +19,6 @@ namespace ariel {
     public:
         SmartTeam(Character *leader) : Team(leader){}
 
-//        ~SmartTeam() = default;
-
-        void add(Character *character) override;
-
         void print() override;
 
         void attack(Team *enemies) override;

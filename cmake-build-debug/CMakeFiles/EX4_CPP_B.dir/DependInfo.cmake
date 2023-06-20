@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ofr/CLionProjects/Ex4-CPP-B/Demo.cpp" "CMakeFiles/EX4_CPP_B.dir/Demo.cpp.o" "gcc" "CMakeFiles/EX4_CPP_B.dir/Demo.cpp.o.d"
   "/home/ofr/CLionProjects/Ex4-CPP-B/MyDemo.cpp" "CMakeFiles/EX4_CPP_B.dir/MyDemo.cpp.o" "gcc" "CMakeFiles/EX4_CPP_B.dir/MyDemo.cpp.o.d"
+  "/home/ofr/CLionProjects/Ex4-CPP-B/MyTest.cpp" "CMakeFiles/EX4_CPP_B.dir/MyTest.cpp.o" "gcc" "CMakeFiles/EX4_CPP_B.dir/MyTest.cpp.o.d"
   "/home/ofr/CLionProjects/Ex4-CPP-B/StudentTest1.cpp" "CMakeFiles/EX4_CPP_B.dir/StudentTest1.cpp.o" "gcc" "CMakeFiles/EX4_CPP_B.dir/StudentTest1.cpp.o.d"
   "/home/ofr/CLionProjects/Ex4-CPP-B/TestRunner.cpp" "CMakeFiles/EX4_CPP_B.dir/TestRunner.cpp.o" "gcc" "CMakeFiles/EX4_CPP_B.dir/TestRunner.cpp.o.d"
   "/home/ofr/CLionProjects/Ex4-CPP-B/sources/Character.cpp" "CMakeFiles/EX4_CPP_B.dir/sources/Character.cpp.o" "gcc" "CMakeFiles/EX4_CPP_B.dir/sources/Character.cpp.o.d"

@@ -12,15 +12,6 @@ using namespace std;
 
 
 
-void SmartTeam::add(Character *character) {
-    if (this->getFighters().size() == 10) throw runtime_error("The team cant be over 10 fighters");
-    if (character->isBelongToTeam()) {
-        throw runtime_error("This character belong to another team");
-    }
-    character->setBelongToTeam(true);
-    this->getFighters().push_back(character);
-}
-
 void SmartTeam::print() {
     for (Character* fighter : this->getFighters()) {
         cout << fighter->print() << endl;
